@@ -51,7 +51,7 @@ api:
         song: string
       then:
         - rtttl.play:
-          rtttl: !lambda 'return song;'
+            rtttl: !lambda 'return song;'
 
 packages:
   remote_package:
