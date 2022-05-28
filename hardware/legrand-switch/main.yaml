@@ -55,7 +55,7 @@ api:
 
 packages:
   remote_package:
-    url: https://github.com/dudanov/esphome-packages@main
+    url: https://github.com/dudanov/esphome-packages
     refresh: 0d
     files: [
       # Main dongle package
