@@ -1,0 +1,56 @@
+substitutions:
+  name: cabinet-ac
+  friendly_name: Cabinet Climate
+  follow_me_sensor: sensor.bedroom_temperature
+
+esphome:
+  project:
+    name: "dudanov.electrolux-ac-control"
+    version: "1.0"
+
+dashboard_import:
+  package_import_url: github://dudanov/esphome-packages/electrolux-ac-esp8266.yaml
+
+packages:
+  remote_package:
+    url: https://github.com/dudanov/esphome-packages@main
+    refresh: 0d
+    files: [
+      # Main dongle package
+      hardware/iot-uni-dongle/main.yaml,
+      # Status LED on ESP-12F module
+      hardware/esp12e/status-led.yaml,
+      # TSOP
+      hardware/iot-uni-dongle/remote/tsop.yaml,
+      # IR LED
+      #hardware/iot-uni-dongle/remote/led.yaml,
+      # Restart button
+      common/restart.yaml,
+      # Safe Mode button
+      common/safe-mode.yaml,
+      # Shutdown button
+      common/shutdown.yaml,
+      # Uptime text sensor
+      common/uptime.yaml,
+      # WiFi Signal RSSI Sensor
+      common/rssi.yaml,
+      # Electrolux EACS. Select your model HERE.
+      climate/midea/electrolux.yaml,
+
+      # "Flash" button. Run `button_click` script on click.
+      hardware/iot-uni-button/button.yaml,
+      # Toggles power on button click. (Not working yet. Support will be in next ESPHome release 2022.6)
+      climate/midea/common/button_action/power.yaml,
+
+      # "Beeper feedback" switch
+      climate/midea/common/beeper.yaml,
+      # "Display toggle" button. Works only via IR transmitter for Electrolux EACS.
+      climate/midea/common/display.yaml,
+      # "Swing step" button. Works only via IR transmitter.
+      climate/midea/common/swing.yaml,
+      # "FollowMe" capability via HomeAssistant service.
+      climate/midea/common/follow_me/service.yaml,
+      # "FollowMe" capability via HomeAssistant sensor.
+      # Sensor entity name setting up via ${follow_me_sensor} substitution.
+      climate/midea/common/follow_me/sensor.yaml,
+    ]

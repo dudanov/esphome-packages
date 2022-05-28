@@ -1,0 +1,5 @@
+# Status LED on ESP-12F module
+status_led:
+  pin:
+    number: GPIO2
+    inverted: true

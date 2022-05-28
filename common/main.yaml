@@ -1,0 +1,23 @@
+# Default config
+esphome:
+  name: ${name}
+  platformio_options:
+    upload_speed: 2000000
+
+# Enable Home Assistant API
+api:
+
+# Enable logger with INFO level
+logger:
+  level: INFO
+
+# Enable OTA
+ota:
+
+# Enable WiFi default access point
+wifi:
+  ap:
+    password: "12345678"
+
+# Enable captive portal
+captive_portal:

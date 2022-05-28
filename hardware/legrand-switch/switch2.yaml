@@ -1,0 +1,17 @@
+binary_sensor:
+  - platform: gpio
+    name: "${friendly_name} Key 3"
+    id: key3
+    pin:
+      number: GPIO26
+      inverted: true
+    filters:
+      - delayed_on_off: 50ms
+  - platform: gpio
+    name: "${friendly_name} Key 4"
+    id: key4
+    pin:
+      number: GPIO27
+      inverted: true
+    filters:
+      - delayed_on_off: 50ms

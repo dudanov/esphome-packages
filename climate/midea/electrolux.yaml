@@ -1,0 +1,24 @@
+# Electrolux EACS/I-xxHAT
+climate:
+  - platform: midea
+    icon: mdi:air-conditioner
+    name: ${friendly_name}
+    id: midea_climate
+    autoconf: false
+    supported_modes:
+      - FAN_ONLY
+      - HEAT_COOL
+      - COOL
+      - HEAT
+      - DRY
+    supported_presets:
+      - SLEEP
+      - ECO
+      - BOOST
+    custom_presets:
+      - FREEZE_PROTECTION
+    supported_swing_modes:
+      - VERTICAL
+    outdoor_temperature:
+      name: ${friendly_name} Outdoor Temperature
+      id: midea_outdoor

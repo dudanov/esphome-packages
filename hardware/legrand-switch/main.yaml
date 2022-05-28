@@ -1,0 +1,77 @@
+# Play on boot
+esphome:
+  on_boot:
+    then:
+      - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
+
+esp32:
+  board: esp32dev
+
+esp32_improv:
+  authorizer: none
+
+improv_serial:
+
+status_led:
+  pin: GPIO32
+
+binary_sensor:
+  - platform: gpio
+    name: "${friendly_name} Key 1"
+    id: key1
+    pin:
+      number: GPIO0
+      inverted: true
+    filters:
+      - delayed_on_off: 50ms
+  - platform: gpio
+    name: "${friendly_name} Key 2"
+    id: key2
+    pin:
+      number: GPIO33
+      inverted: true
+    filters:
+      - delayed_on_off: 50ms
+
+# Buzzer ledc output
+output:
+  - platform: ledc
+    id: buzzer_out
+    pin: GPIO4
+
+# RTTL player
+rtttl:
+  output: buzzer_out
+
+# RTTL service
+api:
+  services:
+    - service: play_rtttl
+      variables:
+        song: string
+      then:
+        - rtttl.play:
+          rtttl: !lambda 'return song;'
+
+packages:
+  remote_package:
+    url: https://github.com/dudanov/esphome-packages@main
+    refresh: 0d
+    files: [
+      # Main dongle package
+      common/main.yaml,
+      # Restart button
+      common/restart.yaml,
+      # Safe Mode button
+      common/safe-mode.yaml,
+      # Shutdown button
+      common/shutdown.yaml,
+      # Uptime text sensor
+      common/uptime.yaml,
+      # WiFi Signal RSSI Sensor
+      common/rssi.yaml,
+      # Switch 2
+      hardware/legrand-switch/switch2.yaml,
+      # Switch 3
+      hardware/legrand-switch/switch3.yaml,
+    ]
