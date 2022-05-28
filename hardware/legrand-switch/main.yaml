@@ -54,12 +54,13 @@ api:
             rtttl: !lambda 'return song;'
 
 packages:
+  main: !include ../../common/main.yaml
   remote_package:
     url: https://github.com/dudanov/esphome-packages
     refresh: 0d
     files: [
       # Main dongle package
-      common/main.yaml,
+      #common/main.yaml,
       # Restart button
       common/restart.yaml,
       # Safe Mode button
