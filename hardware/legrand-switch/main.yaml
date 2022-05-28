@@ -70,8 +70,4 @@ packages:
       common/uptime.yaml,
       # WiFi Signal RSSI Sensor
       common/rssi.yaml,
-      # Switch 2
-      hardware/legrand-switch/switch2.yaml,
-      # Switch 3
-      hardware/legrand-switch/switch3.yaml,
     ]
