@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: gpio
     name: "${friendly_name} Key 3"
-    icon: "mdi:electric-switch"
+    icon: mdi:electric-switch
     id: key3
     pin:
       number: GPIO26
@@ -10,7 +10,7 @@ binary_sensor:
       - delayed_on_off: 50ms
   - platform: gpio
     name: "${friendly_name} Key 4"
-    icon: "mdi:electric-switch"
+    icon: mdi:electric-switch
     id: key4
     pin:
       number: GPIO27
