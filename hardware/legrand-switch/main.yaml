@@ -18,6 +18,7 @@ status_led:
 binary_sensor:
   - platform: gpio
     name: "${friendly_name} Key 1"
+    icon: "mdi:electric-switch"
     id: key1
     pin:
       number: GPIO0
@@ -26,6 +27,7 @@ binary_sensor:
       - delayed_on_off: 50ms
   - platform: gpio
     name: "${friendly_name} Key 2"
+    icon: "mdi:electric-switch"
     id: key2
     pin:
       number: GPIO33
