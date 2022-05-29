@@ -61,9 +61,9 @@ script:
                 effect: "None"
           else:
             - light.turn_on:
-              id: led_main
-              brightness: 100%
-              effect: "Fluorescent"
+                id: led_main
+                brightness: 100%
+                effect: "Fluorescent"
             - delay: 2s
             - light.turn_off: led_main
             - light.turn_on:
