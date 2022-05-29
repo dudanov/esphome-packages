@@ -44,11 +44,13 @@ binary_sensor:
             - script.execute: turn_off
           else:
             - script.stop: turn_off
+            - binary_sensor.template.publish:
+                id: delay_sensor
+                state: off
             - script.execute: turn_on
   - platform: template
     name: "${friendly_name} Delay"
     id: delay_sensor
-    lambda: 'return false;'
 
 script:
   # Turn on script
@@ -85,9 +87,12 @@ script:
           else:
             - binary_sensor.template.publish:
                 id: delay_sensor
-                state: !lambda 'return id(off_delay).state >= 5;'
+                state: !lambda 'return id(off_delay).state;'
             - delay: !lambda "return id(off_delay).state * 1000;"
-      - if:
+            - binary_sensor.template.publish:
+                id: delay_sensor
+                state: off
+    - if:
           condition:
             lambda: 'return id(settings_on_effect).state == "Normal";'
           then:
