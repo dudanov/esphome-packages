@@ -7,7 +7,7 @@ esphome:
   on_boot:
     - binary_sensor.template.publish:
         id: delay_sensor
-        state: off
+        state: OFF
 
 # Define ESP32D4-PICO chip
 esp32:
@@ -52,10 +52,12 @@ binary_sensor:
             - script.stop: turn_off
             - binary_sensor.template.publish:
                 id: delay_sensor
-                state: off
+                state: OFF
             - script.execute: turn_on
   - platform: template
     name: "${friendly_name} Delay"
+    icon: mdi:timer
+    device_class: running
     id: delay_sensor
 
 script:
@@ -97,7 +99,7 @@ script:
             - delay: !lambda "return id(off_delay).state * 1000;"
             - binary_sensor.template.publish:
                 id: delay_sensor
-                state: off
+                state: OFF
       - if:
           condition:
             lambda: 'return id(settings_on_effect).state == "Normal";'
