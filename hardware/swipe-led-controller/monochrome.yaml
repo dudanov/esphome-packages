@@ -33,9 +33,9 @@ binary_sensor:
     device_class: motion
     led_pin: GPIO25
     min_power: 10%
-    max_power: 100%
+    max_power: 60%
     filters:
-      - delayed_off: 2s
+      - delayed_off: 1s
     on_press:
       - if:
           condition:
