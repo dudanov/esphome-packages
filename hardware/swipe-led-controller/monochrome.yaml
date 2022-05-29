@@ -66,7 +66,7 @@ script:
     then:
       - if:
           condition:
-            lambda: 'return id(settings_on_effect).state == "Normal";'
+            lambda: 'return id(settings_effect).state == "Normal";'
           then:
             - light.turn_on:
                 id: led_main
@@ -102,7 +102,7 @@ script:
                 state: OFF
       - if:
           condition:
-            lambda: 'return id(settings_on_effect).state == "Normal";'
+            lambda: 'return id(settings_effect).state == "Normal";'
           then:
             - light.turn_off:
                 id: led_main
@@ -168,8 +168,8 @@ number:
 
 select:
   - platform: template
-    name: "${friendly_name} Turn On Effect"
-    id: settings_on_effect
+    name: "${friendly_name} Effect"
+    id: settings_effect
     icon: "mdi:tune"
     entity_category: config
     optimistic: true
