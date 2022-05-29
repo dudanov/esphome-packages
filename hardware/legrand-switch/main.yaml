@@ -1,3 +1,8 @@
+# Default names
+substitutions:
+  name: my-switch
+  friendly_name: My Switch
+
 # Define ESP32D4-PICO chip
 esp32:
   board: esp32dev
