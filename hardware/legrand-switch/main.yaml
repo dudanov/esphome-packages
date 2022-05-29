@@ -1,15 +1,12 @@
-# Play on boot
-esphome:
-  on_boot:
-    then:
-      - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
-
+# Define ESP32D4-PICO chip
 esp32:
   board: esp32dev
 
+# Onboard status led
 status_led:
   pin: GPIO32
 
+# Adds two main switch keys
 binary_sensor:
   - platform: gpio
     name: "${friendly_name} Key 1"

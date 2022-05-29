@@ -1,3 +1,4 @@
+# Adds two keys of the third switch
 binary_sensor:
   - platform: gpio
     name: "${friendly_name} Key 5"
