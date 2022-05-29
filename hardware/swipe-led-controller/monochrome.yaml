@@ -3,12 +3,6 @@ substitutions:
   name: swipe-controller
   friendly_name: Swipe Controller
 
-esphome:
-  on_boot:
-    - binary_sensor.template.publish:
-        id: delay_sensor
-        state: OFF
-
 # Define ESP32D4-PICO chip
 esp32:
   board: esp32dev
@@ -50,17 +44,20 @@ binary_sensor:
             - script.execute: turn_off
           else:
             - script.stop: turn_off
-            - binary_sensor.template.publish:
-                id: delay_sensor
-                state: OFF
             - script.execute: turn_on
   - platform: template
     name: "${friendly_name} Delay"
     icon: mdi:timer
     device_class: running
     id: delay_sensor
+    lambda: 'return id(timer).is_running();'
 
 script:
+  # Delay off timer
+  - id: timer
+    mode: restart
+    then:
+      - delay: !lambda "return id(off_delay).state * 1000;"
   # Turn on script
   - id: turn_on
     then:
@@ -93,13 +90,8 @@ script:
           then:
             - script.stop: turn_on
           else:
-            - binary_sensor.template.publish:
-                id: delay_sensor
-                state: !lambda 'return id(off_delay).state;'
-            - delay: !lambda "return id(off_delay).state * 1000;"
-            - binary_sensor.template.publish:
-                id: delay_sensor
-                state: OFF
+            - script.execute: timer
+            - script.wait: timer
       - if:
           condition:
             lambda: 'return id(settings_effect).state == "Normal";'
