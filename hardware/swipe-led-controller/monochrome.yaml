@@ -1,0 +1,154 @@
+# Default names
+substitutions:
+  name: swipe-controller
+  friendly_name: Swipe Controller
+
+# Define ESP32D4-PICO chip
+esp32:
+  board: esp32dev
+
+packages:
+  # Default device template
+  default: !include ../../common/default.yaml
+
+# External components
+external_components:
+  - source: github://dudanov/esphome-components
+    components:
+      - esp32_dac_generator
+      - ir_proximity
+
+# Remote receiver for proximity sensor
+remote_receiver:
+  pin:
+    number: GPIO4
+    inverted: true
+
+# Proximity sensor
+binary_sensor:
+  - platform: ir_proximity
+    id: hands_detector
+    name: "${friendly_name} Hands Detector"
+    icon: mdi:hand-clap
+    device_class: motion
+    led_pin: GPIO25
+    min_power: 10%
+    max_power: 100%
+    filters:
+      - delayed_off: 2s
+    on_press:
+      - if:
+          condition:
+            light.is_on: led_main
+          then:
+            - script.stop: turn_on
+            - script.execute: turn_off
+          else:
+            - script.stop: turn_off
+            - script.execute: turn_on
+
+script:
+  # Turn on script
+  - id: turn_on
+    then:
+      if:
+        condition:
+          lambda: 'return id(settings_on_effect).state == "Normal";'
+        then:
+          - light.turn_on:
+            id: led_main
+            brightness: 100%
+            effect: "None"
+        else:
+          - light.turn_on:
+            id: led_main
+            brightness: 100%
+            effect: "Fluorescent"
+          - delay: 2s
+          - light.turn_off: led_main
+          - light.turn_on:
+              id: led_main
+              brightness: 100%
+              transition_length: 0s
+  # Turn off script
+  - id: turn_off
+    mode: restart
+    then:
+      - delay: !lambda "return id(off_delay).state * 1000;"
+      - if:
+        condition:
+          lambda: 'return id(settings_on_effect).state == "Normal";'
+        then:
+          light.turn_off:
+            id: led_main
+        else:
+          light.turn_off:
+            id: led_main
+            transition_length: 0s
+
+# Light LED PWM output
+output:
+  - platform: ledc
+    id: out_led
+    pin: GPIO18
+
+light:
+  - platform: monochromatic
+    name: "${friendly_name} Light"
+    icon: mdi:wall-sconce-flat
+    id: led_main
+    output: out_led
+    default_transition_length: 2s
+    effects:
+      - pulse:
+      - random:
+      - flicker:
+      - strobe:
+      - flicker:
+          name: "Fluorescent"
+          alpha: 55%
+          intensity: 100%
+
+# Onboard status led
+status_led:
+  pin: GPIO14
+
+number:
+  - platform: template
+    name: "${friendly_name} Sensitivity"
+    icon: "mdi:signal-distance-variant"
+    entity_category: config
+    mode: slider
+    optimistic: true
+    restore_value: true
+    min_value: 1
+    max_value: 10
+    step: 0.5
+    on_value:
+    - output.set_level:
+        id: hands_detector
+        level: !lambda "return remap(x, 1.0f, 10.0f, id(hands_detector).get_min_power(), id(hands_detector).get_max_power());"
+  - platform: template
+    name: "${friendly_name} Off Delay"
+    id: off_delay
+    icon: "mdi:timer-sand"
+    entity_category: config
+    mode: slider
+    unit_of_measurement: "sec"
+    optimistic: true
+    restore_value: true
+    min_value: 0
+    max_value: 30
+    step: 1
+
+select:
+  - platform: template
+    name: "${friendly_name} Turn On Effect"
+    id: settings_on_effect
+    icon: "mdi:tune"
+    entity_category: config
+    optimistic: true
+    restore_value: true
+    options:
+      - Normal
+      - Fluorescent
