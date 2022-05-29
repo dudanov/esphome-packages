@@ -1,4 +1,4 @@
-# iot-uni-dongle onboard button
+# Onboard PRG button
 binary_sensor:
   - platform: gpio
     id: dongle_button

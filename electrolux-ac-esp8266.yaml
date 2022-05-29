@@ -13,27 +13,15 @@ dashboard_import:
 
 packages:
   remote_package:
-    url: https://github.com/dudanov/esphome-packages@main
+    url: https://github.com/dudanov/esphome-packages
     refresh: 0d
     files: [
       # Main dongle package
-      hardware/iot-uni-dongle/main.yaml,
-      # Status LED on ESP-12F module
-      hardware/esp12e/status-led.yaml,
+      hardware/iot-uni-dongle/device.yaml,
       # TSOP
       hardware/iot-uni-dongle/remote/tsop.yaml,
       # IR LED
       #hardware/iot-uni-dongle/remote/led.yaml,
-      # Restart button
-      common/restart.yaml,
-      # Safe Mode button
-      common/safe-mode.yaml,
-      # Shutdown button
-      common/shutdown.yaml,
-      # Uptime text sensor
-      common/uptime.yaml,
-      # WiFi Signal RSSI Sensor
-      common/rssi.yaml,
       # Electrolux EACS. Select your model HERE.
       climate/midea/electrolux.yaml,
 
