@@ -41,7 +41,6 @@ binary_sensor:
           condition:
             light.is_on: led_main
           then:
-            - script.stop: turn_on
             - script.execute: turn_off
           else:
             - script.stop: turn_off
@@ -74,7 +73,12 @@ script:
   - id: turn_off
     mode: restart
     then:
-      - delay: !lambda "return id(off_delay).state * 1000;"
+      - condition:
+        script.is_running: turn_on
+      then:
+        - script.stop: turn_on
+      else:
+        - delay: !lambda "return id(off_delay).state * 1000;"
       - if:
           condition:
             lambda: 'return id(settings_on_effect).state == "Normal";'
