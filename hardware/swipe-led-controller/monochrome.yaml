@@ -71,12 +71,12 @@ script:
             - light.turn_on:
                 id: led_main
                 brightness: 100%
-                effect: "None"
+                effect: None
           else:
             - light.turn_on:
                 id: led_main
                 brightness: 100%
-                effect: "Fluorescent"
+                effect: Fluorescent
             - delay: 2s
             - light.turn_off: led_main
             - light.turn_on:
@@ -130,7 +130,7 @@ light:
       - flicker:
       - strobe:
       - flicker:
-          name: "Fluorescent"
+          name: Fluorescent
           alpha: 55%
           intensity: 100%
 
@@ -141,7 +141,7 @@ status_led:
 number:
   - platform: template
     name: "${friendly_name} Sensitivity"
-    icon: "mdi:signal-distance-variant"
+    icon: mdi:signal-distance-variant
     entity_category: config
     mode: slider
     optimistic: true
@@ -156,10 +156,10 @@ number:
   - platform: template
     name: "${friendly_name} Off Delay"
     id: off_delay
-    icon: "mdi:timer-sand"
+    icon: mdi:timer-sand
     entity_category: config
     mode: slider
-    unit_of_measurement: "sec"
+    unit_of_measurement: sec
     optimistic: true
     restore_value: true
     min_value: 0
@@ -170,7 +170,7 @@ select:
   - platform: template
     name: "${friendly_name} Effect"
     id: settings_effect
-    icon: "mdi:tune"
+    icon: mdi:tune
     entity_category: config
     optimistic: true
     restore_value: true
