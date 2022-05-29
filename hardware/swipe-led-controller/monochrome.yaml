@@ -6,8 +6,8 @@ substitutions:
 esphome:
   on_boot:
     - binary_sensor.template.publish:
-      id: delay_sensor
-      state: off
+        id: delay_sensor
+        state: off
 
 # Define ESP32D4-PICO chip
 esp32:
