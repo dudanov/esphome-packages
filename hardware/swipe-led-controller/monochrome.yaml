@@ -80,16 +80,16 @@ script:
             - script.stop: turn_on
           else:
             - delay: !lambda "return id(off_delay).state * 1000;"
-          - if:
-              condition:
-                lambda: 'return id(settings_on_effect).state == "Normal";'
-              then:
-                - light.turn_off:
-                    id: led_main
-              else:
-                - light.turn_off:
-                    id: led_main
-                    transition_length: 0s
+      - if:
+          condition:
+            lambda: 'return id(settings_on_effect).state == "Normal";'
+          then:
+            - light.turn_off:
+                id: led_main
+          else:
+            - light.turn_off:
+                id: led_main
+                transition_length: 0s
 
 # Light LED PWM output
 output:
