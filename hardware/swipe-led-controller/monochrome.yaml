@@ -92,7 +92,7 @@ script:
             - binary_sensor.template.publish:
                 id: delay_sensor
                 state: off
-    - if:
+      - if:
           condition:
             lambda: 'return id(settings_on_effect).state == "Normal";'
           then:
