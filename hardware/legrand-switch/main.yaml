@@ -53,15 +53,5 @@ api:
             rtttl: !lambda 'return song;'
 
 packages:
-  # Main template
-  main: !include ../../common/main.yaml
-  # Restart button
-  restart: !include ../../common/restart.yaml
-  # Safe Mode button
-  safe-mode: !include ../../common/safe-mode.yaml
-  # Shutdown button
-  shutdown: !include ../../common/shutdown.yaml
-  # Uptime text sensor
-  uptime: !include ../../common/uptime.yaml
-  # WiFi Signal RSSI Sensor
-  rssi: !include ../../common/rssi.yaml
+  # Default device template
+  default: !include ../../common/default.yaml

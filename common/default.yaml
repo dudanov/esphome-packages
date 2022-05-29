@@ -1,0 +1,14 @@
+# Default device packages
+packages:
+  # Main template
+  main: !include main.yaml
+  # Restart button
+  restart: !include restart.yaml
+  # Safe Mode button
+  safe-mode: !include safe-mode.yaml
+  # Shutdown button
+  shutdown: !include shutdown.yaml
+  # Uptime text sensor
+  uptime: !include uptime.yaml
+  # WiFi Signal RSSI Sensor
+  rssi: !include rssi.yaml
