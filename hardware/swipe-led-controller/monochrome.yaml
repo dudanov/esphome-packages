@@ -70,7 +70,6 @@ script:
             - light.turn_on:
                 id: led_main
                 brightness: 100%
-                transition_length: 2s
           else:
             - light.turn_on:
                 id: led_main
@@ -98,10 +97,10 @@ script:
           then:
             - light.turn_off:
                 id: led_main
-                transition_length: 2s
           else:
             - light.turn_off:
                 id: led_main
+                transition_length: 0s
 
 # Light LED PWM output
 output:
@@ -115,7 +114,7 @@ light:
     icon: mdi:wall-sconce-flat
     id: led_main
     output: out_led
-    default_transition_length: 0s
+    default_transition_length: 2s
     effects:
       - pulse:
       - random:
