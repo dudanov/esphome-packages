@@ -75,7 +75,7 @@ script:
                 brightness: 100%
                 effect: Fluorescent
             - delay: 2s
-            - light.turn_on:
+            - light.control:
                 id: led_main
                 effect: None
   # Turn off script
