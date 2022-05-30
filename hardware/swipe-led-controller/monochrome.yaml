@@ -7,6 +7,8 @@ substitutions:
 esp32:
   board: esp32dev
 
+web_server:
+
 packages:
   # Default device template
   default: !include ../../common/default.yaml
