@@ -1,3 +1,8 @@
+# Default names
+substitutions:
+  name: iot-device
+  friendly_name: IoT Device
+
 # Default device packages
 packages:
   # Main template
