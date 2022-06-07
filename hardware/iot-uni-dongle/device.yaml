@@ -1,3 +1,6 @@
+substitutions:
+  friendly_name: IoT Device
+
 packages:
   # Minimal iot-uni-dongle config
   minimal: !include minimal.yaml
