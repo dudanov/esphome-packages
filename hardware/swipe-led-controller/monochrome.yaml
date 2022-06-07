@@ -3,6 +3,11 @@ substitutions:
   name: swipe-controller
   friendly_name: Swipe Controller
 
+esphome:
+  project:
+    name: "dudanov.swipe-led-controller"
+    version: "1.0"
+
 # Define ESP32D4-PICO chip
 esp32:
   board: esp32dev
