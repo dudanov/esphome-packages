@@ -7,8 +7,6 @@ substitutions:
 esp32:
   board: esp32dev
 
-web_server:
-
 packages:
   # Default device template
   default: !include ../../common/default.yaml
@@ -114,7 +112,6 @@ light:
     icon: mdi:wall-sconce-flat
     id: led_main
     output: out_led
-    default_transition_length: 2s
     effects:
       - pulse:
       - random:

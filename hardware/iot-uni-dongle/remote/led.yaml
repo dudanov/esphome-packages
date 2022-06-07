@@ -1,4 +1,4 @@
-# IR remote transmitter (LED)
+# IR remote transmitter (IR LED between IR+ and IR- pads)
 remote_transmitter:
   pin: GPIO13
   carrier_duty_percent: 50%

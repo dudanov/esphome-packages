@@ -7,9 +7,8 @@ esphome:
 # Enable Home Assistant API
 api:
 
-# Enable logger with INFO level
+# Enable logger with DEBUG level
 logger:
-  level: INFO
 
 # Enable OTA
 ota:

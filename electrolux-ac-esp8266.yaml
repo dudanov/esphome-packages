@@ -1,7 +1,7 @@
 substitutions:
   name: cabinet-ac
   friendly_name: Cabinet Climate
-  follow_me_sensor: sensor.bedroom_temperature
+  #follow_me_sensor: sensor.bedroom_temperature
 
 esphome:
   project:
@@ -18,9 +18,9 @@ packages:
     files: [
       # Main dongle package
       hardware/iot-uni-dongle/device.yaml,
-      # TSOP
+      # IR remote transmitter (IR- pad connected to TSOP output of controlled device)
       hardware/iot-uni-dongle/remote/tsop.yaml,
-      # IR LED
+      # IR remote transmitter (IR LED between IR+ and IR- pads)
       #hardware/iot-uni-dongle/remote/led.yaml,
       # Electrolux EACS. Select your model HERE.
       climate/midea/electrolux.yaml,
@@ -40,5 +40,5 @@ packages:
       climate/midea/common/follow_me/service.yaml,
       # "FollowMe" capability via HomeAssistant sensor.
       # Sensor entity name setting up via ${follow_me_sensor} substitution.
-      climate/midea/common/follow_me/sensor.yaml,
+      #climate/midea/common/follow_me/sensor.yaml,
     ]
