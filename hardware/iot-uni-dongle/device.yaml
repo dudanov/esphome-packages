@@ -1,4 +1,5 @@
 substitutions:
+  name: iot-device
   friendly_name: IoT Device
 
 packages:
