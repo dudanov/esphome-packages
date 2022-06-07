@@ -1,7 +1,7 @@
 # Default names
 substitutions:
-  name: iot-device
-  friendly_name: IoT Device
+  name: esphome-device
+  friendly_name: ESPHome Device
 
 # Default device packages
 packages:
