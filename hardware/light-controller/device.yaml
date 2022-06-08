@@ -1,0 +1,53 @@
+# Default names
+substitutions:
+  name: hall-light
+  friendly_name: Hall Light
+  num_leds: '700'
+
+esphome:
+  project:
+    name: "dudanov.light-controller"
+    version: "1.0"
+  includes:
+    - feron_light.h
+
+# Define ESP-WROOM-32
+esp32:
+  board: esp32dev
+
+packages:
+  # Default device template
+  default: !include ../../common/default.yaml
+
+remote_transmitter:
+  id: ir_remote
+  pin: GPIO25
+  carrier_duty_percent: 100%
+
+light:
+  - platform: custom
+    lambda: |-
+      auto light = new FeronLightOutput();
+      light->set_remote_transmitter(id(ir_remote));
+      return {light};
+    lights:
+      name: "${friendly_name} Feron"
+      id: cabinet_light
+      default_transition_length: 0s
+      gamma_correct: 1.0
+  - platform: neopixelbus
+    name: "${friendly_name} NeoPixel 1"
+    power_supply: led_power
+    type: GRBW
+    variant: SK6812
+    pin: GPIO32
+    num_leds: ${num_leds}
+    method:
+      type: esp32_i2s
+      bus: 0
+    effects:
+      - addressable_rainbow:
+
+power_supply:
+  - id: led_power
+    pin: GPIO26
