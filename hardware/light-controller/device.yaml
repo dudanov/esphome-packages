@@ -49,6 +49,8 @@ light:
       - addressable_rainbow:
       - wled:
 
+wled:
+
 power_supply:
   - id: led_power
     pin: GPIO26
