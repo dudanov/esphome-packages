@@ -47,6 +47,7 @@ light:
       bus: 0
     effects:
       - addressable_rainbow:
+      - wled:
 
 power_supply:
   - id: led_power
