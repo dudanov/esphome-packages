@@ -54,3 +54,4 @@ wled:
 power_supply:
   - id: led_power
     pin: GPIO26
+    enable_time: 2s
