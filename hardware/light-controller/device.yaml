@@ -37,14 +37,11 @@ light:
       gamma_correct: 1.0
   - platform: neopixelbus
     name: "${friendly_name} NeoPixel 1"
-    power_supply: led_power
-    type: GRBW
-    variant: SK6812
-    pin: GPIO32
     num_leds: ${num_leds}
-    method:
-      type: esp32_i2s
-      bus: 0
+    power_supply: led_power
+    variant: SK6812
+    type: GRBW
+    pin: GPIO32
     effects:
       - addressable_rainbow:
       - wled:
