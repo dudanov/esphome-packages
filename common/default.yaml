@@ -12,9 +12,9 @@ packages:
   # Restart button
   restart: !include restart.yaml
   # Safe Mode button
-  safe-mode: !include safe-mode.yaml
+  #safe-mode: !include safe-mode.yaml
   # Shutdown button
-  shutdown: !include shutdown.yaml
+  #shutdown: !include shutdown.yaml
   # Uptime text sensor
   uptime: !include uptime.yaml
   # WiFi Signal RSSI Sensor

@@ -11,7 +11,7 @@ using namespace esphome::remote_base;
 #define FERON_ADDRESS_NATIVE  0xB7A0
 #define FERON_POWER_OFF       0x13EC
 
-static inline unsigned kelvin_to_mireds(unsigned k) { return 1e6 / k; }
+constexpr float kelvin_to_mireds(unsigned k) { return 1e6 / k; }
 
 class FeronLightOutput : public LightOutput {
  public:
@@ -19,7 +19,7 @@ class FeronLightOutput : public LightOutput {
     auto traits = LightTraits();
     traits.set_supported_color_modes({ColorMode::COLOR_TEMPERATURE});
     traits.set_min_mireds(kelvin_to_mireds(6500)); // 153
-    traits.set_max_mireds(kelvin_to_mireds(2695)); // 371
+    traits.set_max_mireds(kelvin_to_mireds(2700)); // 371
     return traits;
   }
   void write_state(LightState *state) override {
