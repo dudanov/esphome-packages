@@ -33,6 +33,9 @@ sensor:
                 result += to_string(minutes);
                 result += "m ";
               }
-              result += to_string(seconds);
-              result += 's';
+              if (seconds != 0) {
+                result += to_string(seconds);
+                result += "s ";
+              }
+              result.pop_back();
               return result;
