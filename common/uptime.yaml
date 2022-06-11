@@ -14,7 +14,7 @@ sensor:
             id: uptime_txt
             state: !lambda |-
               std::string result;
-              unsigned seconds = lround(x);
+              unsigned seconds = lroundf(x);
               unsigned days = seconds / (24 * 3600);
               seconds = seconds % (24 * 3600);
               if (days != 0) {
