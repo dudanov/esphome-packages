@@ -11,7 +11,7 @@ text_sensor:
       icon: mdi:ip-network
     ssid:
       name: '${friendly_name} SSID'
-      icon: mdi:wifi-star
+      icon: mdi:wifi
     mac_address:
       name: '${friendly_name} MAC'
-      icon: mdi:wifi-star
+      icon: mdi:entity_category
