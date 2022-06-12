@@ -17,5 +17,7 @@ packages:
   #shutdown: !include shutdown.yaml
   # Uptime text sensor
   uptime: !include uptime.yaml
-  # WiFi Signal RSSI Sensor
-  rssi: !include rssi.yaml
+  # WiFi Sensors
+  wifi: !include wifi.yaml
+  # ESPHome version
+  version: !include version.yaml
