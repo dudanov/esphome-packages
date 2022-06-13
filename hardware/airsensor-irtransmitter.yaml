@@ -1,0 +1,60 @@
+substitutions:
+  buzzer_pin: GPIO25
+
+esphome:
+  project:
+    name: 'dudanov.airsensor-irtransmitter'
+    version: '1.0'
+  on_boot:
+    then:
+      - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
+
+# Define ESP32-WROOM32 module
+esp32:
+  board: esp32dev
+
+packages:
+  default: !include ../common/default.yaml
+  buzzer: !include esp32/buzzer.yaml
+
+uart:
+  rx_pin: GPIO19
+  tx_pin: GPIO18
+  baud_rate: 9600
+
+sensor:
+  - platform: mhz19
+    id: mhz19_sensor
+    co2:
+      name: '${friendly_name} MH-Z19 CO2'
+    temperature:
+      name: '${friendly_name} MH-Z19 Temperature'
+    automatic_baseline_calibration: false
+    update_interval: 60s
+  - platform: dht
+    pin: GPIO14
+    model: AM2302
+    temperature:
+      name: '${friendly_name} AM2302 Temperature'
+    humidity:
+      name: '${friendly_name} AM2302 Humidity'
+    update_interval: 60s
+
+remote_transmitter:
+  id: ir_remote
+  pin: GPIO23
+  carrier_duty_percent: 50%
+
+button:
+  - platform: template
+    name: '${friendly_name} TV'
+    icon: mdi:television-box
+    on_press:
+      # Android TVBox Power Command
+      - remote_transmitter.transmit_nec:
+          address: 0x7F80
+          command: 0xAE51
+      - delay: 200ms
+        # Samsung TV Power Command
+      - remote_transmitter.transmit_samsung:
+          data: 0xE0E040BF

@@ -1,0 +1,17 @@
+# Buzzer ESP32 default package
+output:
+  - platform: ledc
+    pin: ${buzzer_pin}
+    id: buzzer_output
+
+rtttl:
+  output: buzzer_output
+
+api:
+  services:
+    - service: play_rtttl
+      variables:
+        song: string
+      then:
+        - rtttl.play:
+            rtttl: !lambda 'return song;'
