@@ -2,6 +2,7 @@
 substitutions:
   name: my-switch
   friendly_name: My Switch
+  buzzer_pin: GPIO4
 
 # Define ESP32D4-PICO chip
 esp32:
@@ -32,26 +33,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 50ms
 
-# Buzzer ledc output
-output:
-  - platform: ledc
-    id: buzzer_out
-    pin: GPIO4
-
-# RTTL player
-rtttl:
-  output: buzzer_out
-
-# RTTL service
-api:
-  services:
-    - service: play_rtttl
-      variables:
-        song: string
-      then:
-        - rtttl.play:
-            rtttl: !lambda 'return song;'
-
 packages:
   # Default device template
   default: !include ../../common/default.yaml
+  buzzer: !include ../esp32/buzzer.yaml
