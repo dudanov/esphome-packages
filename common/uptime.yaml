@@ -3,6 +3,7 @@ text_sensor:
   - platform: template
     name: '${friendly_name} Uptime'
     id: uptime_txt
+    entity_category: diagnostic
     icon: mdi:clock-start
 sensor:
   - platform: uptime
