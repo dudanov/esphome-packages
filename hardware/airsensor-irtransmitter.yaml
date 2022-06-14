@@ -24,29 +24,33 @@ uart:
 
 sensor:
   - platform: mhz19
-    id: mhz19_sensor
+    id: mhz19_device
     co2:
+      id: mhz19_co2_sensor
       name: '${friendly_name} MH-Z19 CO2'
     temperature:
+      id: mhz19_temperature_sensor
       name: '${friendly_name} MH-Z19 Temperature'
-    automatic_baseline_calibration: false
     update_interval: 60s
+    automatic_baseline_calibration: false
   - platform: dht
     pin: GPIO14
     model: AM2302
     temperature:
+      id: am2302_temperature_sensor
       name: '${friendly_name} AM2302 Temperature'
     humidity:
+      id: am2302_humidity_sensor
       name: '${friendly_name} AM2302 Humidity'
     update_interval: 60s
 
 remote_transmitter:
-  id: ir_remote
   pin: GPIO23
   carrier_duty_percent: 50%
 
 button:
   - platform: template
+    id: tv_button
     name: '${friendly_name} TV'
     icon: mdi:television-box
     on_press:
