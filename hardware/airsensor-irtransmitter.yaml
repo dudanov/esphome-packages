@@ -15,7 +15,7 @@ esp32:
 
 packages:
   default: !include ../common/default.yaml
-  buzzer: !include esp32/buzzer.yaml
+  buzzer: !include ../common/buzzer/esp32.yaml
 
 uart:
   rx_pin: GPIO19
