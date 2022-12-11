@@ -27,10 +27,9 @@ sensor:
     id: mhz19_device
     co2:
       id: mhz19_co2_sensor
-      name: '${friendly_name} MH-Z19 CO2'
+      name: '${friendly_name} CO2'
     temperature:
       id: mhz19_temperature_sensor
-      name: '${friendly_name} MH-Z19 Temperature'
     update_interval: 60s
     automatic_baseline_calibration: false
   - platform: dht
@@ -38,10 +37,10 @@ sensor:
     model: AM2302
     temperature:
       id: am2302_temperature_sensor
-      name: '${friendly_name} AM2302 Temperature'
+      name: '${friendly_name} Temperature'
     humidity:
       id: am2302_humidity_sensor
-      name: '${friendly_name} AM2302 Humidity'
+      name: '${friendly_name} Humidity'
     update_interval: 60s
 
 remote_transmitter:
