@@ -9,7 +9,7 @@ using namespace esphome::remote_base;
 
 #define FERON_ADDRESS_DIM_BH  0xB721
 #define FERON_ADDRESS_NATIVE  0xB7A0
-#define FERON_POWER_OFF       0x13EC
+#define FERON_POWER_OFF       0xEC
 
 constexpr float kelvin_to_mireds(unsigned k) { return 1e6 / k; }
 
@@ -35,7 +35,6 @@ class FeronLightOutput : public LightOutput {
     if (brightness > 0.0f) {
       address = FERON_ADDRESS_DIM_BH;
       command = static_cast<uint16_t>(0.5f + brightness * 15.0f) * 16 + static_cast<uint16_t>(15.5f - color * 15.0f);
-      command += ~command * 256;
     }
     ESP_LOGD("feron_light", "Set color: %f, brightness: %f. NEC command: 0x%04X", color, brightness, command);
     transmit(this->remote_, {address, command});
