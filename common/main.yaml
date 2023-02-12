@@ -24,6 +24,8 @@ ota:
 
 # Enable WiFi default access point
 wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
   domain: ${domain}
   ap:
     password: ${ap_password}
