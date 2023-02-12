@@ -4,6 +4,16 @@ substitutions:
   friendly_name: My Switch
   buzzer_pin: GPIO4
 
+esphome:
+  project:
+    name: "dudanov.legrand-switch"
+    version: "1.0"
+
+packages:
+  default: !include ../../common/default.yaml
+  esp32: !include ../../common/esp32.yaml
+  buzzer: !include ../esp32/buzzer.yaml
+
 # Onboard status led
 status_led:
   pin: GPIO32
@@ -28,9 +38,3 @@ binary_sensor:
       inverted: true
     filters:
       - delayed_on_off: 50ms
-
-packages:
-  # Default device template
-  default: !include ../../common/default.yaml
-  esp32: !include ../../common/esp32.yaml
-  buzzer: !include ../esp32/buzzer.yaml
