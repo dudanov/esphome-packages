@@ -1,3 +1,6 @@
+substitutions:
+  api_key: sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0=
+
 # Default config
 esphome:
   name: ${name}
@@ -6,6 +9,8 @@ esphome:
 
 # Enable Home Assistant API
 api:
+  encryption:
+    key: ${api_key}
 
 # Enable logger with DEBUG level
 logger:
