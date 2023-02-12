@@ -19,6 +19,14 @@ remote_transmitter:
   pin: GPIO25
   carrier_duty_percent: 100%
 
+switch:
+  - platform: template
+    id: fade_switch
+    name: "${friendly_name} Feron Fade Effect"
+    entity_category: config
+    optimistic: true
+    restore_state: true
+
 # This light for my project: https://github.com/dudanov/feron-light-advanced-control
 
 light:
@@ -26,6 +34,7 @@ light:
     lambda: |-
       auto light = new FeronLightOutput();
       light->set_remote_transmitter(id(ir_remote));
+      light->set_fade_switch(id(fade_switch));
       return {light};
     lights:
       name: "${friendly_name} Feron"
