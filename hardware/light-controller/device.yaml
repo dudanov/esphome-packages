@@ -19,6 +19,8 @@ remote_transmitter:
   pin: GPIO25
   carrier_duty_percent: 100%
 
+# This light for my project: https://github.com/dudanov/feron-light-advanced-control
+
 light:
   - platform: custom
     lambda: |-
@@ -30,3 +32,20 @@ light:
       id: cabinet_light
       default_transition_length: 0s
       gamma_correct: 1.0
+
+api:
+  services:
+    - service: feron_preset_load
+      # Load specified preset from internal EEPROM
+      variables:
+        preset: int
+      then:
+        - lambda: |-
+            FeronLightOutput::preset_load(id(ir_remote), preset);
+    - service: feron_preset_save
+      # Save current state as specified preset to internal EEPROM
+      variables:
+        preset: int
+      then:
+        - lambda: |-
+            FeronLightOutput::preset_save(id(ir_remote), preset);

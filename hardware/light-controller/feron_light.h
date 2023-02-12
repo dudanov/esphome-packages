@@ -22,6 +22,12 @@ class FeronLightOutput : public LightOutput {
     traits.set_max_mireds(kelvin_to_mireds(2700)); // 371
     return traits;
   }
+  static void transmit(RemoteTransmitterBase *remote, NECData data) {
+    data.command |= ~data.command * 256;
+    auto xmit = remote->transmit();
+    NECProtocol().encode(xmit.get_data(), data);
+    xmit.perform();
+  }
   void write_state(LightState *state) override {
     float color, brightness;
     uint16_t address = FERON_ADDRESS_NATIVE, command = FERON_POWER_OFF;
@@ -32,9 +38,17 @@ class FeronLightOutput : public LightOutput {
       command += ~command * 256;
     }
     ESP_LOGD("feron_light", "Set color: %f, brightness: %f. NEC command: 0x%04X", color, brightness, command);
-    auto transmit = this->remote_->transmit();
-    NECProtocol().encode(transmit.get_data(), {address, command});
-    transmit.perform();
+    transmit(this->remote_, {address, command});
+  }
+  static void preset_load(RemoteTransmitterBase *remote, int preset) {
+    preset &= 15;
+    ESP_LOGD("feron_light", "Loading preset: %d", preset);
+    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset)});
+  }
+  static void preset_save(RemoteTransmitterBase *remote, int preset) {
+    preset &= 15;
+    ESP_LOGD("feron_light", "Saving preset: %d", preset);
+    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + 32)});
   }
   void set_remote_transmitter(RemoteTransmitterBase *remote) { this->remote_ = remote; }
 
