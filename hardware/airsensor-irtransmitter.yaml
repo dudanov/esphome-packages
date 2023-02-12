@@ -9,12 +9,9 @@ esphome:
     then:
       - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
 
-# Define ESP32-WROOM32 module
-esp32:
-  board: esp32dev
-
 packages:
   default: !include ../common/default.yaml
+  esp32: !include ../common/esp32.yaml
   buzzer: !include ../common/buzzer/esp32.yaml
 
 uart:

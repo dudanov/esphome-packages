@@ -11,13 +11,9 @@ esphome:
   includes:
     - feron_light.h
 
-# Define ESP-WROOM-32
-esp32:
-  board: esp32dev
-
 packages:
-  # Default device template
   default: !include ../../common/default.yaml
+  esp32: !include ../../common/esp32.yaml
 
 remote_transmitter:
   id: ir_remote

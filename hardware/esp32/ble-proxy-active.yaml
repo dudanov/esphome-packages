@@ -1,0 +1,10 @@
+substitutions:
+  framework: esp-idf
+
+packages:
+  esp32: !include ../../common/esp32.yaml
+
+esp32_ble_tracker:
+
+bluetooth_proxy:
+  active: true

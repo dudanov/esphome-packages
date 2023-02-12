@@ -1,0 +1,8 @@
+substitutions:
+  board: esp32dev
+  framework: arduino
+
+esp32:
+  board: ${board}
+  framework:
+    type: ${framework}

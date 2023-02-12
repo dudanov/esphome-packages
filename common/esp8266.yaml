@@ -1,0 +1,6 @@
+substitutions:
+  board: esp12e
+
+esp8266:
+  board: ${board}
+  restore_from_flash: true

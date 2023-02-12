@@ -8,13 +8,9 @@ esphome:
     name: "dudanov.swipe-led-controller"
     version: "1.0"
 
-# Define ESP32D4-PICO chip
-esp32:
-  board: esp32dev
-
 packages:
-  # Default device template
   default: !include ../../common/default.yaml
+  esp32: !include ../../common/esp32.yaml
 
 # External components
 external_components:

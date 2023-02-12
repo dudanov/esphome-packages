@@ -17,6 +17,3 @@ ota:
 wifi:
   ap:
     password: "12345678"
-
-# Enable captive portal
-captive_portal:

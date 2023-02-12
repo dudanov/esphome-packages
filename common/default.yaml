@@ -8,7 +8,7 @@ packages:
   # Main template
   main: !include main.yaml
   # Web server
-  web: !include web.yaml
+  #web: !include web.yaml
   # Restart button
   restart: !include restart.yaml
   # Safe Mode button

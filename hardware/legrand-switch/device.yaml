@@ -4,10 +4,6 @@ substitutions:
   friendly_name: My Switch
   buzzer_pin: GPIO4
 
-# Define ESP32D4-PICO chip
-esp32:
-  board: esp32dev
-
 # Onboard status led
 status_led:
   pin: GPIO32
@@ -36,4 +32,5 @@ binary_sensor:
 packages:
   # Default device template
   default: !include ../../common/default.yaml
+  esp32: !include ../../common/esp32.yaml
   buzzer: !include ../esp32/buzzer.yaml
