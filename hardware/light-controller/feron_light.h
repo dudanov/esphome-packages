@@ -36,7 +36,7 @@ class FeronLightOutput : public LightOutput {
       address = FERON_ADDRESS_DIM_BH;
       command = static_cast<uint16_t>(0.5f + brightness * 15.0f) * 16 + static_cast<uint16_t>(15.5f - color * 15.0f);
     }
-    ESP_LOGD("feron_light", "Set color: %f, brightness: %f. NEC command: 0x%04X", color, brightness, command);
+    ESP_LOGD("feron_light", "Set color: %f, brightness: %f. NEC command: 0x%02X", color, brightness, command);
     transmit(this->remote_, {address, command});
   }
   static void preset_load(RemoteTransmitterBase *remote, int preset) {
