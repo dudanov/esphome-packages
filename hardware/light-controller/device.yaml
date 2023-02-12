@@ -23,7 +23,7 @@ switch:
   - platform: template
     id: fade_switch
     name: "${friendly_name} Feron Fade Effect"
-    icon: mdi:transition
+    icon: mdi:animation-play-outline
     entity_category: config
     optimistic: true
     restore_state: true
