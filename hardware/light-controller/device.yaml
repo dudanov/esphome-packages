@@ -2,7 +2,6 @@
 substitutions:
   name: hall-light
   friendly_name: Hall Light
-  num_leds: '700'
 
 esphome:
   project:
@@ -31,27 +30,3 @@ light:
       id: cabinet_light
       default_transition_length: 0s
       gamma_correct: 1.0
-  - platform: neopixelbus
-    name: "${friendly_name} NeoPixel 1"
-    num_leds: ${num_leds}
-    power_supply: led_power
-    variant: SK6812
-    type: GRBW
-    pin: GPIO32
-    effects:
-      - addressable_rainbow:
-      - addressable_color_wipe:
-      - addressable_scan:
-      - addressable_twinkle:
-      - addressable_random_twinkle:
-      - addressable_fireworks:
-      - addressable_flicker:
-      - wled:
-
-wled:
-
-power_supply:
-  - id: led_power
-    pin: GPIO26
-    enable_time: 2s
-    keep_on_time: 5s
