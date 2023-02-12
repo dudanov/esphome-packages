@@ -12,7 +12,7 @@ esphome:
 packages:
   default: !include ../../common/default.yaml
   esp32: !include ../../common/esp32.yaml
-  buzzer: !include ../esp32/buzzer.yaml
+  buzzer: !include ../../common/buzzer/esp32.yaml
 
 # Onboard status led
 status_led:
