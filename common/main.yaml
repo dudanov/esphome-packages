@@ -1,5 +1,8 @@
 substitutions:
-  api_key: sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0=
+  domain: ".local"
+  ap_password: "12345678"
+  ota_password: "8940a295270cef3d1e420838161bb145"
+  api_key: "sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0="
 
 # Default config
 esphome:
@@ -17,8 +20,10 @@ logger:
 
 # Enable OTA
 ota:
+  password: ${ota_password}
 
 # Enable WiFi default access point
 wifi:
+  domain: ${domain}
   ap:
-    password: "12345678"
+    password: ${ap_password}
