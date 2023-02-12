@@ -20,4 +20,4 @@ packages:
   # WiFi Sensors
   wifi: !include wifi.yaml
   # ESPHome version
-  version: !include version.yaml
+  #version: !include version.yaml
