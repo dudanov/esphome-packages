@@ -44,12 +44,12 @@ class FeronLightOutput : public LightOutput {
   }
   static void preset_load(RemoteTransmitterBase *remote, int preset) {
     preset &= 15;
-    ESP_LOGD("feron_light", "Loading preset: %d", preset);
+    ESP_LOGD("feron_light", "Loading state from EEPROM preset: %d", preset);
     transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + this->fade_on() ? 0 : 16)});
   }
   static void preset_save(RemoteTransmitterBase *remote, int preset) {
     preset &= 15;
-    ESP_LOGD("feron_light", "Saving preset: %d", preset);
+    ESP_LOGD("feron_light", "Saving current state to EEPROM preset: %d", preset);
     transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + 32)});
   }
   void set_remote_transmitter(RemoteTransmitterBase *remote) { this->remote_ = remote; }
