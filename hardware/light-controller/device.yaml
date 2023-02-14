@@ -1,61 +1,13 @@
 # Default names
 substitutions:
-  name: hall-light
-  friendly_name: Hall Light
+  name: light-controller
+  friendly_name: Light Controller
 
 esphome:
   project:
     name: "dudanov.light-controller"
     version: "1.0"
-  includes:
-    - feron_light.h
 
 packages:
   default: !include ../../common/default.yaml
   esp32: !include ../../common/esp32.yaml
-
-remote_transmitter:
-  id: ir_remote
-  pin: GPIO25
-  carrier_duty_percent: 100%
-
-switch:
-  - platform: template
-    id: fade_switch
-    name: "${friendly_name} Feron Fade Effect"
-    icon: mdi:animation-play-outline
-    entity_category: config
-    optimistic: true
-    restore_state: true
-
-# This light for my project: https://github.com/dudanov/feron-light-advanced-control
-
-light:
-  - platform: custom
-    lambda: |-
-      auto light = new FeronLightOutput();
-      light->set_remote_transmitter(id(ir_remote));
-      light->set_fade_switch(id(fade_switch));
-      return {light};
-    lights:
-      name: "${friendly_name} Feron"
-      id: cabinet_light
-      default_transition_length: 0s
-      gamma_correct: 1.0
-
-api:
-  services:
-    - service: feron_preset_load
-      # Load specified preset from internal EEPROM
-      variables:
-        preset: int
-      then:
-        - lambda: |-
-            FeronLightOutput::preset_load(id(ir_remote), preset);
-    - service: feron_preset_save
-      # Save current state as specified preset to internal EEPROM
-      variables:
-        preset: int
-      then:
-        - lambda: |-
-            FeronLightOutput::preset_save(id(ir_remote), preset);

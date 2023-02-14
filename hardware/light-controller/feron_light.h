@@ -45,7 +45,7 @@ class FeronLightOutput : public LightOutput {
   static void preset_load(RemoteTransmitterBase *remote, int preset) {
     preset &= 15;
     ESP_LOGD("feron_light", "Loading preset: %d", preset);
-    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset)});
+    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + this->fade_on() ? 0 : 16)});
   }
   static void preset_save(RemoteTransmitterBase *remote, int preset) {
     preset &= 15;
