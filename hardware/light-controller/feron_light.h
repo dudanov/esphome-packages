@@ -42,10 +42,10 @@ class FeronLightOutput : public LightOutput {
     ESP_LOGD("feron_light", "Set color: %f, brightness: %f. NEC command: 0x%02X", color, brightness, command);
     transmit(this->remote_, {address, command});
   }
-  static void preset_load(RemoteTransmitterBase *remote, int preset) {
+  static void preset_load(RemoteTransmitterBase *remote, int preset, bool force = false) {
     preset &= 15;
     ESP_LOGD("feron_light", "Loading state from EEPROM preset: %d", preset);
-    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + this->fade_on() ? 0 : 16)});
+    transmit(remote, {FERON_ADDRESS_NATIVE, static_cast<uint16_t>(preset + force * 16)});
   }
   static void preset_save(RemoteTransmitterBase *remote, int preset) {
     preset &= 15;

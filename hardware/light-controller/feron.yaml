@@ -40,7 +40,7 @@ api:
         preset: int
       then:
         - lambda: |-
-            FeronLightOutput::preset_load(id(ir_remote), preset);
+            FeronLightOutput::preset_load(id(ir_remote), preset, !id(fade_switch).state);
     - service: feron_preset_save
       # Save current state as specified preset to internal EEPROM
       variables:
