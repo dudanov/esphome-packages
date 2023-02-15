@@ -3,8 +3,8 @@
 
 esphome:
   project:
-    name: dudanov.e-meter
-    version: 1.0
+    name: 'dudanov.e-meter'
+    version: '1.0'
 
 packages:
   default: !include ../common/default.yaml
