@@ -4,6 +4,7 @@ switch:
     name: Beeper
     id: midea_beeper
     icon: mdi:volume-source
+    entity_category: config
     restore_state: true
     optimistic: true
     turn_on_action:
