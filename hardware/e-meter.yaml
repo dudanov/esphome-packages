@@ -1,0 +1,321 @@
+# Device reading Modbus 6-CH E-Meter WirenBoard WB-MAP6S
+# https://wirenboard.com/wiki/WB-MAP6S_Modbus_Power_Meter
+
+esphome:
+  project:
+    name: dudanov.e-meter
+    version: 1.0
+
+packages:
+  default: !include ../common/default.yaml
+  esp32: !include ../common/esp32.yaml
+
+uart:
+  tx_pin: GPIO18
+  rx_pin: GPIO5
+  baud_rate: 115200
+
+modbus:
+  flow_control_pin: GPIO17
+
+modbus_controller:
+  - id: map6s
+    address: 68
+    setup_priority: -10
+    update_interval: 2s
+
+sensor:
+# VOLTAGE
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4313
+    name: Voltage
+    state_class: measurement
+    device_class: voltage
+    unit_of_measurement: V
+    register_type: read
+    value_type: U_WORD
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+# FREQUENCY
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4344
+    name: Frequency
+    state_class: measurement
+    device_class: frequency
+    unit_of_measurement: Hz
+    register_type: read
+    value_type: U_WORD
+    accuracy_decimals: 1
+    filters:
+      - multiply: 0.01
+# CHANNEL 1
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 5146
+    name: Current CH1
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4870
+    name: Power CH1
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4620
+    name: Energy CH1
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+# CHANNEL 2
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 5144
+    name: Current CH2
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4868
+    name: Power CH2
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4616
+    name: Energy CH2
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+# CHANNEL 3
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 5142
+    name: Current CH3
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4866
+    name: Power CH3
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4612
+    name: Energy CH3
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+# CHANNEL 4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 9242
+    name: Current CH4
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8966
+    name: Power CH4
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8716
+    name: Energy CH4
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+# CHANNEL 5
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 9240
+    name: Current CH5
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8964
+    name: Power CH5
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8712
+    name: Energy CH5
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+# CHANNEL 6
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 4880
+    name: Current CH6
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8962
+    name: Power CH6
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    modbus_controller_id: map6s
+    address: 8708
+    name: Energy CH6
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
+
+  # Ваттметр на основе импульсного выхода электросчетчика
+  - platform: pulse_meter
+    id: sensor_energy_pulse_meter
+    name: Power
+    device_class: power
+    state_class: measurement
+    unit_of_measurement: W
+    accuracy_decimals: 0
+    pin:
+      number: GPIO3
+      inverted: true
+    internal_filter: 100ms
+    filters:
+      - multiply: 30
+    total:
+      name: Energy
+      id: sensor_total_energy
+      unit_of_measurement: kWh
+      state_class: total_increasing
+      device_class: energy
+      accuracy_decimals: 3
+      filters:
+        - multiply: 5e-4
+
+# Reset total energy button
+button:
+  - platform: template
+    name: Energy Reset
+    id: button_reset_total
+    entity_category: config
+    on_press:
+      - pulse_meter.set_total_pulses:
+          id: sensor_energy_pulse_meter
+          value: 0
+
+api:
+  services:
+    # Сервис установки счетчика дневного тарифа
+    - service: set_total_energy
+      variables:
+        kwh: float
+      then:
+        - pulse_meter.set_total_pulses:
+            id: sensor_energy_pulse_meter
+            value: !lambda return kwh * 2e3f;
