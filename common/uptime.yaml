@@ -1,7 +1,7 @@
 # Example configuration entry
 text_sensor:
   - platform: template
-    name: '${friendly_name} Uptime'
+    name: Uptime
     id: uptime_txt
     entity_category: diagnostic
     icon: mdi:clock-start

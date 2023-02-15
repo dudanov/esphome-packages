@@ -13,7 +13,7 @@ light:
       light->set_fade_switch(id(fade_switch));
       return {light};
     lights:
-      name: "${friendly_name} Feron"
+      name: Feron
       id: cabinet_light
       default_transition_length: 0s
       gamma_correct: 1.0
@@ -21,7 +21,7 @@ light:
 switch:
   - platform: template
     id: fade_switch
-    name: "${friendly_name} Feron Fade Effect"
+    name: Feron Fade Effect
     icon: mdi:animation-play-outline
     entity_category: config
     optimistic: true

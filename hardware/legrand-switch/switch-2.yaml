@@ -1,7 +1,7 @@
 # Adds two keys of the second switch
 binary_sensor:
   - platform: gpio
-    name: "${friendly_name} Key 3"
+    name: Key 3
     icon: mdi:electric-switch
     id: key3
     pin:
@@ -10,7 +10,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 50ms
   - platform: gpio
-    name: "${friendly_name} Key 4"
+    name: Key 4
     icon: mdi:electric-switch
     id: key4
     pin:

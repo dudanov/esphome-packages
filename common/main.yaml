@@ -7,6 +7,7 @@ substitutions:
 # Default config
 esphome:
   name: ${name}
+  friendly_name: ${friendly_name}
   platformio_options:
     upload_speed: 2000000
 

@@ -29,7 +29,7 @@ remote_receiver:
 binary_sensor:
   - platform: ir_proximity
     id: hands_detector
-    name: "${friendly_name} Hands Detector"
+    name: Hands Detector
     icon: mdi:hand-clap
     device_class: motion
     led_pin: GPIO25
@@ -47,7 +47,7 @@ binary_sensor:
             - script.stop: turn_off
             - script.execute: turn_on
   - platform: template
-    name: "${friendly_name} Delay"
+    name: Delay
     icon: mdi:timer
     device_class: running
     id: delay_sensor
@@ -109,7 +109,7 @@ output:
 
 light:
   - platform: monochromatic
-    name: "${friendly_name} Light"
+    name: Light
     icon: mdi:wall-sconce-flat
     id: led_main
     output: out_led
@@ -129,7 +129,7 @@ status_led:
 
 number:
   - platform: template
-    name: "${friendly_name} Sensitivity"
+    name: Sensitivity
     icon: mdi:signal-distance-variant
     entity_category: config
     mode: slider
@@ -143,7 +143,7 @@ number:
         id: hands_detector
         level: !lambda "return remap(x, 1.0f, 10.0f, id(hands_detector).get_min_power(), id(hands_detector).get_max_power());"
   - platform: template
-    name: "${friendly_name} Off Delay"
+    name: Off Delay
     id: off_delay
     icon: mdi:timer-sand
     entity_category: config
@@ -157,7 +157,7 @@ number:
 
 select:
   - platform: template
-    name: "${friendly_name} Effect"
+    name: Effect
     id: settings_effect
     icon: mdi:tune
     entity_category: config

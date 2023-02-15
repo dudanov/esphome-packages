@@ -3,7 +3,7 @@ substitutions:
 
 light:
   - platform: neopixelbus
-    name: "${friendly_name} NeoPixel 1"
+    name: NeoPixel 1
     num_leds: ${num_leds}
     power_supply: led_power
     variant: SK6812

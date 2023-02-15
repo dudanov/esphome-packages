@@ -21,7 +21,7 @@ status_led:
 # Adds two main switch keys
 binary_sensor:
   - platform: gpio
-    name: "${friendly_name} Key 1"
+    name: Key 1
     icon: mdi:electric-switch
     id: key1
     pin:
@@ -30,7 +30,7 @@ binary_sensor:
     filters:
       - delayed_on_off: 50ms
   - platform: gpio
-    name: "${friendly_name} Key 2"
+    name: Key 2
     icon: mdi:electric-switch
     id: key2
     pin:

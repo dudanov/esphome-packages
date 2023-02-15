@@ -2,7 +2,7 @@
 climate:
   - platform: midea
     icon: mdi:air-conditioner
-    name: ${friendly_name}
+    name: Climate
     id: midea_climate
     autoconf: false
     supported_modes:
@@ -20,5 +20,5 @@ climate:
     supported_swing_modes:
       - VERTICAL
     outdoor_temperature:
-      name: ${friendly_name} Outdoor Temperature
+      name: Outdoor Temperature
       id: midea_outdoor

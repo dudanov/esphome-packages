@@ -2,16 +2,16 @@
 text_sensor:
   - platform: wifi_info
     ip_address:
-      name: '${friendly_name} IP'
+      name: IP
       icon: mdi:ip-network
     mac_address:
-      name: '${friendly_name} MAC'
+      name: MAC
       icon: mdi:ip-network
     ssid:
-      name: '${friendly_name} SSID'
+      name: SSID
       icon: mdi:wifi
 # WiFi Signal Sensor
 sensor:
   - platform: wifi_signal
-    name: '${friendly_name} RSSI'
+    name: RSSI
     update_interval: 60s
