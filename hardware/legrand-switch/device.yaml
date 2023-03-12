@@ -28,7 +28,7 @@ binary_sensor:
       number: GPIO0
       inverted: true
     filters:
-      - delayed_on_off: 50ms
+      - delayed_off: 50ms
   - platform: gpio
     name: Key 2
     icon: mdi:electric-switch
@@ -37,4 +37,4 @@ binary_sensor:
       number: GPIO33
       inverted: true
     filters:
-      - delayed_on_off: 50ms
+      - delayed_off: 50ms
