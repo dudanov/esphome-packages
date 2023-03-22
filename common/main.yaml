@@ -1,6 +1,9 @@
 substitutions:
-  ap_password: "12345678"
+  name: esphome-device
+  friendly_name: ESPHome Device
+  domain: ".local"
   api_key: "sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0="
+  ap_password: "12345678"
   ota_password: ""
 
 # Default config
@@ -24,5 +27,6 @@ ota:
 
 # Enable WiFi default access point
 wifi:
+  domain: ${domain}
   ap:
     password: ${ap_password}
