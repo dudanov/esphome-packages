@@ -2,6 +2,12 @@
 substitutions:
   name: esphome-device
   friendly_name: ESPHome Device
+  domain: ".local"
+
+wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  domain: ${domain}
 
 # Default device packages
 packages:

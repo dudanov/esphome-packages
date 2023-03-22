@@ -1,5 +1,4 @@
 substitutions:
-  domain: ".local"
   ap_password: "12345678"
   api_key: "sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0="
   ota_password: ""
@@ -25,8 +24,5 @@ ota:
 
 # Enable WiFi default access point
 wifi:
-  ssid: ${wifi_ssid}
-  password: ${wifi_password}
-  domain: ${domain}
   ap:
     password: ${ap_password}
