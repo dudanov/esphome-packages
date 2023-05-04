@@ -58,3 +58,15 @@ button:
         # Samsung TV Power Command
       - remote_transmitter.transmit_samsung:
           data: 0xE0E040BF
+
+i2s_audio:
+  i2s_lrclk_pin: GPIO15
+  i2s_bclk_pin: GPIO4
+
+microphone:
+  - platform: i2s_audio
+    id: mic_id
+    i2s_din_pin: GPIO2
+
+voice_assistant:
+  microphone: mic_id
