@@ -65,6 +65,8 @@ i2s_audio:
 
 microphone:
   - platform: i2s_audio
+    # ICS-43434
+    # https://invensense.tdk.com/wp-content/uploads/2016/02/DS-000069-ICS-43434-v1.2.pdf
     id: mic_id
     adc_type: external
     pdm: false
