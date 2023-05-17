@@ -66,6 +66,7 @@ i2s_audio:
 microphone:
   - platform: i2s_audio
     id: mic_id
+    adc_type: external
     i2s_din_pin: GPIO2
 
 voice_assistant:
