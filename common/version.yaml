@@ -1,5 +1,4 @@
 # Sensor for ESPHome version
 text_sensor:
   - platform: version
-    hide_timestamp: true
-    name: ESPHome Version
+    name: Version

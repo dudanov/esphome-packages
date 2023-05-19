@@ -1,0 +1,13 @@
+# EN:  Enable logging via NETWORK ONLY.
+# RU:  Включает логгер ТОЛЬКО НА СЕТЕВОМ ИНТЕРФЕЙСЕ.
+# URL: https://esphome.io/components/logger.html
+logger:
+    baud_rate: 0
+
+# EN:  Setting up UART interface (9600 8N1).
+# RU:  Настройка UART интерфейса (9600 8N1).
+# URL: https://esphome.io/components/uart.html
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 9600

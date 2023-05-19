@@ -3,16 +3,7 @@ substitutions:
   name: iot-uni-dongle
 
 packages:
+  # Common minimal config
   main: !include ../../common/main.yaml
-  esp8266: !include ../../common/esp8266.yaml
-  web: !include ../../common/web.yaml
-
-# Disable logging via UART
-logger:
-  baud_rate: 0
-
-# UART config
-uart:
-  tx_pin: GPIO1
-  rx_pin: GPIO3
-  baud_rate: 9600
+  # ESP-12E module minimal config
+  esp8266: !include ../esp12e/esp8266.yaml

@@ -1,32 +1,42 @@
+# EN:  Package substitutions variables.
+# RU:  Подстановочные переменные пакета.
+# URL: https://esphome.io/guides/configuration-types.html
 substitutions:
   name: esphome-device
   friendly_name: ESPHome Device
   domain: ".local"
-  api_key: "sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0="
   ap_password: "12345678"
   ota_password: ""
 
-# Default config
+# EN:  Minimal ESPHOME config.
+# RU:  Минимальная конфигурация ESPHOME.
+# URL: https://esphome.io/components/esphome.html
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
   platformio_options:
     upload_speed: 2000000
 
-# Enable Home Assistant API
-api:
-  encryption:
-    key: ${api_key}
-
-# Enable logger with DEBUG level
+# EN:  Enables logger.
+# RU:  Включает логгер.
+# URL: https://esphome.io/components/logger.html
 logger:
 
-# Enable OTA
-ota:
-  password: ${ota_password}
-
-# Enable WiFi default access point
+# EN:  Enables Wi-Fi default access point in fallback mode.
+# RU:  Включает точку доступа Wi-Fi в аварийном режиме.
+# URL: https://esphome.io/components/wifi.html
 wifi:
   domain: ${domain}
   ap:
     password: ${ap_password}
+
+# EN:  Enables captive portal in fallback mode.
+# RU:  Включает сетевой сервис для поиска точки доступа и настройки сети в аварийном режиме.
+# URL: https://esphome.io/components/ota.html
+captive_portal:
+
+# EN:  Enables OTA
+# RU:  Включает ОТА протокол для перепрошивки устройства по сети.
+# URL: https://esphome.io/components/ota.html
+ota:
+  password: ${ota_password}

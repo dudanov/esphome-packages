@@ -1,4 +1,6 @@
-# Restart button
+# EN:  Restart button
+# RU:  Кнопка перезагрузки
+# URL: https://esphome.io/components/button/restart.html
 button:
   - platform: restart
     name: Restart

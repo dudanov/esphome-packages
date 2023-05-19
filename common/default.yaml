@@ -2,17 +2,13 @@
 packages:
   # Main template
   main: !include main.yaml
-  # Web server
-  #web: !include web.yaml
+  # Home Assistant API
+  api: !include api.yaml
   # Restart button
   restart: !include restart.yaml
-  # Safe Mode button
-  #safe-mode: !include safe-mode.yaml
-  # Shutdown button
-  #shutdown: !include shutdown.yaml
   # Uptime text sensor
   uptime: !include uptime.yaml
   # WiFi Sensors
   wifi: !include wifi.yaml
-  # ESPHome version
-  #version: !include version.yaml
+  # ESPHome version with timestamp
+  version: !include version.yaml

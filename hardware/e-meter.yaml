@@ -7,8 +7,8 @@ esphome:
     version: '1.0'
 
 packages:
+  esp32: !include ../esp32/esp32.yaml
   default: !include ../common/default.yaml
-  esp32: !include ../common/esp32.yaml
 
 uart:
   tx_pin: GPIO18

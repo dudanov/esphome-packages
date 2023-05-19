@@ -1,0 +1,11 @@
+# EN:  Enables Home Assistant support.
+#      Defines the substitution `api_key` with Home Assistant API key.
+# RU:  Включает поддержку Home Assistant.
+#      Объявляет подстановочную переменную `api_key` с ключом API.
+# URL: https://esphome.io/components/api.html
+substitutions:
+  api_key: "sOsBobs9D/bNFOBZ5GFr+TuHdMbYMntmDNXt5F/3lk0="
+
+api:
+  encryption:
+    key: ${api_key}
