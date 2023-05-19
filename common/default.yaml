@@ -6,9 +6,9 @@ packages:
   api: !include api.yaml
   # Restart button
   restart: !include restart.yaml
+  # Safe Mode button
+  safe-mode: !include safe-mode.yaml
   # Uptime text sensor
   uptime: !include uptime.yaml
   # WiFi Sensors
   wifi: !include wifi.yaml
-  # ESPHome version with timestamp
-  version: !include version.yaml

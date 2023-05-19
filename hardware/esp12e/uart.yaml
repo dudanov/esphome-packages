@@ -2,7 +2,7 @@
 # RU:  Включает логгер ТОЛЬКО НА СЕТЕВОМ ИНТЕРФЕЙСЕ.
 # URL: https://esphome.io/components/logger.html
 logger:
-    baud_rate: 0
+  baud_rate: 0
 
 # EN:  Setting up UART interface (9600 8N1).
 # RU:  Настройка UART интерфейса (9600 8N1).

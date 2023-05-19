@@ -1,4 +1,0 @@
-# Sensor for ESPHome version
-text_sensor:
-  - platform: version
-    name: Version
