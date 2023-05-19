@@ -7,7 +7,7 @@ esphome:
     version: '1.0'
 
 packages:
-  esp32: !include ../esp32/esp32.yaml
+  esp32: !include esp32/esp32.yaml
   default: !include ../common/default.yaml
 
 uart:

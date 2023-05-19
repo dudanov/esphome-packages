@@ -10,7 +10,7 @@ esphome:
       - rtttl.play: 'scale_up:d=32,o=5,b=100:c,c#,d#,e,f#,g#,a#,b'
 
 packages:
-  esp32: !include ../esp32/esp32.yaml
+  esp32: !include esp32/esp32.yaml
   default: !include ../common/default.yaml
   buzzer: !include ../common/buzzer/esp32.yaml
 
