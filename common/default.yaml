@@ -1,7 +1,7 @@
 # Default device packages
 packages:
-  # Main template
-  main: !include main.yaml
+  # Minimal config
+  minimal: !include minimal.yaml
   # Home Assistant API
   api: !include api.yaml
   # Restart button

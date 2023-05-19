@@ -30,11 +30,6 @@ wifi:
   ap:
     password: ${ap_password}
 
-# EN:  Enables captive portal in fallback mode.
-# RU:  Включает сетевой сервис для поиска точки доступа и настройки сети в аварийном режиме.
-# URL: https://esphome.io/components/ota.html
-captive_portal:
-
 # EN:  Enables OTA
 # RU:  Включает ОТА протокол для перепрошивки устройства по сети.
 # URL: https://esphome.io/components/ota.html

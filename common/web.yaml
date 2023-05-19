@@ -1,2 +1,10 @@
+# EN:  Enables captive portal in fallback mode.
+# RU:  Включает сетевой сервис поиска точки доступа и настройки сети в аварийном режиме.
+# URL: https://esphome.io/components/ota.html
+captive_portal:
+
+# EN:  Enables HTTP web server.
+# RU:  Включает HTTP веб-сервер.
+# URL: https://esphome.io/components/web_server.html
 web_server:
   port: 80
