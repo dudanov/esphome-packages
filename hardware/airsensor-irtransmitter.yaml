@@ -70,7 +70,7 @@ microphone:
     # https://invensense.tdk.com/wp-content/uploads/2016/02/DS-000069-ICS-43434-v1.2.pdf
     id: mic_id
     channel: left
-    bits_per_sample: 32
+    bits_per_sample: 32bit
     adc_type: external
     pdm: false
     i2s_din_pin: GPIO2
