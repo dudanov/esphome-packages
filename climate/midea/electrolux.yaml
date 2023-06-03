@@ -2,7 +2,7 @@
 climate:
   - platform: midea
     icon: mdi:air-conditioner
-    name: Climate
+    name: None
     id: midea_climate
     autoconf: false
     supported_modes:
