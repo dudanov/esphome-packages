@@ -1,2 +1,2 @@
 # esphome-packages
-Packages for ESPHome devices.
+[Packages](https://esphome.io/guides/configuration-types.html#packages) for my [ESPHome](https://esphome.io) devices.
