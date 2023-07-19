@@ -5,7 +5,7 @@ switch:
     id: midea_beeper
     icon: mdi:volume-source
     entity_category: config
-    restore_state: true
+    restore_mode: RESTORE_DEFAULT_ON 
     optimistic: true
     turn_on_action:
       midea_ac.beeper_on:
