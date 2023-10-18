@@ -7,4 +7,5 @@ packages:
 esp32_ble_tracker:
 
 bluetooth_proxy:
-  active: true
+  active: yes
+  cache_services: no
