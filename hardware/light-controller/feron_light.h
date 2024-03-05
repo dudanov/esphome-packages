@@ -26,8 +26,11 @@ class FeronLightOutput : public LightOutput {
     return traits;
   }
   static void transmit(RemoteTransmitterBase *remote, NECData data) {
-    data.command |= ~data.command * 256;
     auto xmit = remote->transmit();
+    data.command |= ~data.command * 256;
+#if ESPHOME_VERSION_CODE >= VERSION_CODE(2023, 12, 0)
+    data.command_repeats = 1;
+#endif
     NECProtocol().encode(xmit.get_data(), data);
     xmit.perform();
   }
