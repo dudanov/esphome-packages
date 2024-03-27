@@ -29,7 +29,7 @@ sensor:
     temperature:
       id: mhz19_temperature_sensor
     update_interval: 60s
-    automatic_baseline_calibration: false
+    #automatic_baseline_calibration: false
   - platform: dht
     pin: GPIO14
     model: AM2302
