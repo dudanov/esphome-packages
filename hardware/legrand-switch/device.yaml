@@ -17,12 +17,12 @@ packages:
 
   # Adds two main switch keys
   key1: !include
-    file: key.yaml
+    file: key_template.yaml
     vars:
       num: 1
       pin: 0
   key2: !include
-    file: key.yaml
+    file: key_template.yaml
     vars:
       num: 2
       pin: 33

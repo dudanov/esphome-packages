@@ -1,12 +1,12 @@
 packages:
   # Adds two keys of the second switch
   key3: !include
-    file: key.yaml
+    file: key_template.yaml
     vars:
       num: 3
       pin: 26
   key4: !include
-    file: key.yaml
+    file: key_template.yaml
     vars:
       num: 4
       pin: 27
