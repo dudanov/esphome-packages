@@ -35,5 +35,6 @@ wifi:
 # URL: https://esphome.io/components/ota.html
 ota:
   - platform: esphome
-    safe_mode: true
     password: ${ota_password}
+
+safe_mode:
