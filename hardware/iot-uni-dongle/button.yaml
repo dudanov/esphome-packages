@@ -4,6 +4,6 @@ binary_sensor:
     id: dongle_button
     pin:
       number: 0
-      inverted: true
+      inverted: on
     on_click:
       script.execute: on_button_click

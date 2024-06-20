@@ -92,7 +92,7 @@ binary_sensor:
     id: btn
     pin:
       number: 0
-      inverted: true
+      inverted: on
     filters:
       - delayed_off: 200ms
     on_press:

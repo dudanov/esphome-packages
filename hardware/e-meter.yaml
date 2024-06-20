@@ -13,7 +13,9 @@ packages:
 
 uart:
   tx_pin: 18
-  rx_pin: 5
+  rx_pin:
+    number: 5
+    ignore_strapping_warning: yes
   baud_rate: 115200
 
 modbus:
@@ -285,7 +287,7 @@ sensor:
     accuracy_decimals: 0
     pin:
       number: 3
-      inverted: true
+      inverted: on
     internal_filter: 100ms
     filters:
       - multiply: 30

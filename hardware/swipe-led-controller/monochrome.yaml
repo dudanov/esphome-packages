@@ -23,7 +23,7 @@ external_components:
 remote_receiver:
   pin:
     number: 4
-    inverted: true
+    inverted: on
 
 # Proximity sensor
 binary_sensor:
