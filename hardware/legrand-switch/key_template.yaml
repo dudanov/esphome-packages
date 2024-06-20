@@ -1,5 +1,5 @@
 defaults:
-  ignore_strapping_warning: "false"
+  ignore_strapping_warning: "False"
 binary_sensor:
   - platform: gpio
     name: Key ${num}
@@ -7,7 +7,7 @@ binary_sensor:
     id: key${num}
     pin:
       number: ${pin}
-      inverted: true
+      inverted: on
       ignore_strapping_warning: ${ignore_strapping_warning}
     filters:
       - delayed_off: 50ms

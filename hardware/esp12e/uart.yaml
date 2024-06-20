@@ -8,6 +8,6 @@ logger:
 # RU:  Настройка UART интерфейса (9600 8N1).
 # URL: https://esphome.io/components/uart.html
 uart:
-  tx_pin: GPIO1
-  rx_pin: GPIO3
+  tx_pin: 1
+  rx_pin: 3
   baud_rate: 9600

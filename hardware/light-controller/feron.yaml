@@ -29,7 +29,7 @@ switch:
 
 remote_transmitter:
   id: ir_remote
-  pin: GPIO25
+  pin: 25
   carrier_duty_percent: 100%
 
 api:

@@ -12,12 +12,12 @@ packages:
   web: !include ../common/web.yaml
 
 uart:
-  tx_pin: GPIO18
-  rx_pin: GPIO5
+  tx_pin: 18
+  rx_pin: 5
   baud_rate: 115200
 
 modbus:
-  flow_control_pin: GPIO17
+  flow_control_pin: 17
 
 modbus_controller:
   - id: map6s
@@ -275,7 +275,7 @@ sensor:
     filters:
       - multiply: 1e-5
 
-  # Ваттметр на основе импульсного выхода электросчетчика
+  # Wattmeter based on the pulse output of an electric meter
   - platform: pulse_meter
     id: sensor_energy_pulse_meter
     name: Power
@@ -284,7 +284,7 @@ sensor:
     unit_of_measurement: W
     accuracy_decimals: 0
     pin:
-      number: GPIO3
+      number: 3
       inverted: true
     internal_filter: 100ms
     filters:
@@ -312,7 +312,7 @@ button:
 
 api:
   services:
-    # Сервис установки счетчика дневного тарифа
+    # Service for setting the value of the energy meter
     - service: set_total_energy
       variables:
         kwh: float

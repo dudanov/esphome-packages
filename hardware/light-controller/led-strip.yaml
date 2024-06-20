@@ -8,7 +8,7 @@ light:
     power_supply: led_power
     variant: SK6812
     type: GRBW
-    pin: GPIO32
+    pin: 32
     effects:
       - addressable_rainbow:
       - addressable_color_wipe:
@@ -23,6 +23,6 @@ wled:
 
 power_supply:
   - id: led_power
-    pin: GPIO26
+    pin: 26
     enable_time: 2s
     keep_on_time: 5s

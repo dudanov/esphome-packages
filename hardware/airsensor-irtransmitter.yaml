@@ -1,5 +1,5 @@
 substitutions:
-  buzzer_pin: GPIO25
+  buzzer_pin: 25
 
 esphome:
   project:
@@ -16,8 +16,8 @@ packages:
   buzzer: !include ../common/buzzer/esp32.yaml
 
 uart:
-  rx_pin: GPIO19
-  tx_pin: GPIO18
+  rx_pin: 19
+  tx_pin: 18
   baud_rate: 9600
 
 sensor:
@@ -31,7 +31,7 @@ sensor:
     update_interval: 60s
     #automatic_baseline_calibration: false
   - platform: dht
-    pin: GPIO14
+    pin: 14
     model: AM2302
     temperature:
       id: am2302_temperature_sensor
@@ -42,7 +42,7 @@ sensor:
     update_interval: 60s
 
 remote_transmitter:
-  pin: GPIO23
+  pin: 23
   carrier_duty_percent: 50%
 
 button:
@@ -61,8 +61,8 @@ button:
           data: 0xE0E040BF
 
 i2s_audio:
-  i2s_lrclk_pin: GPIO15
-  i2s_bclk_pin: GPIO4
+  i2s_lrclk_pin: 15
+  i2s_bclk_pin: 4
 
 microphone:
   - platform: i2s_audio
@@ -73,7 +73,7 @@ microphone:
     bits_per_sample: 32bit
     adc_type: external
     pdm: false
-    i2s_din_pin: GPIO2
+    i2s_din_pin: 2
 
 voice_assistant:
   microphone: mic_id
@@ -91,7 +91,7 @@ binary_sensor:
   - platform: gpio
     id: btn
     pin:
-      number: GPIO0
+      number: 0
       inverted: true
     filters:
       - delayed_off: 200ms

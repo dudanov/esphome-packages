@@ -2,7 +2,7 @@
 substitutions:
   name: my-switch
   friendly_name: My Switch
-  buzzer_pin: GPIO4
+  buzzer_pin: 4
 
 esphome:
   project:
@@ -21,7 +21,7 @@ packages:
     vars:
       num: 1
       pin: 0
-      ignore_strapping_warning: "true"
+      ignore_strapping_warning: "True"
   key2: !include
     file: key_template.yaml
     vars:

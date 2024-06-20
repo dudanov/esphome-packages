@@ -22,7 +22,7 @@ external_components:
 # Remote receiver for proximity sensor
 remote_receiver:
   pin:
-    number: GPIO4
+    number: 4
     inverted: true
 
 # Proximity sensor
@@ -32,7 +32,7 @@ binary_sensor:
     name: Hands Detector
     icon: mdi:hand-clap
     device_class: motion
-    led_pin: GPIO25
+    led_pin: 25
     min_power: 10%
     max_power: 70%
     filters:
@@ -105,7 +105,7 @@ script:
 output:
   - platform: ledc
     id: out_led
-    pin: GPIO18
+    pin: 18
 
 light:
   - platform: monochromatic
@@ -125,7 +125,7 @@ light:
 
 # Onboard status led
 status_led:
-  pin: GPIO14
+  pin: 14
 
 number:
   - platform: template
