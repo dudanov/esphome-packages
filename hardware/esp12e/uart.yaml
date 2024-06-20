@@ -8,7 +8,7 @@ logger:
 # RU:  Настройка UART интерфейса (9600 8N1).
 # URL: https://esphome.io/components/uart.html
 uart:
-  id: uart0
+  id: uart8266
   tx_pin: 1
   rx_pin: 3
   baud_rate: 9600
