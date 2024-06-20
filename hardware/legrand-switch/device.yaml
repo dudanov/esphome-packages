@@ -2,7 +2,7 @@
 substitutions:
   name: my-switch
   friendly_name: My Switch
-  buzzer_pin: 4
+  buzzer_pin: GPIO4
 
 esphome:
   project:
