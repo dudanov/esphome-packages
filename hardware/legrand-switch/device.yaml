@@ -21,7 +21,7 @@ packages:
     vars:
       num: 1
       pin: 0
-      ignore_strapping_warning: "True"
+      ignore_strapping_warning: "yes"
   key2: !include
     file: key_template.yaml
     vars:
