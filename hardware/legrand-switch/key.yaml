@@ -1,0 +1,10 @@
+binary_sensor:
+  - platform: gpio
+    name: Key ${num}
+    icon: mdi:electric-switch
+    id: key${num}
+    pin:
+      number: ${pin}
+      inverted: true
+    filters:
+      - delayed_off: 50ms

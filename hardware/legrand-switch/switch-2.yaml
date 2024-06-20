@@ -1,20 +1,12 @@
-# Adds two keys of the second switch
-binary_sensor:
-  - platform: gpio
-    name: Key 3
-    icon: mdi:electric-switch
-    id: key3
-    pin:
-      number: GPIO26
-      inverted: true
-    filters:
-      - delayed_off: 50ms
-  - platform: gpio
-    name: Key 4
-    icon: mdi:electric-switch
-    id: key4
-    pin:
-      number: GPIO27
-      inverted: true
-    filters:
-      - delayed_off: 50ms
+packages:
+  # Adds two keys of the second switch
+  key3: !include
+    file: key.yaml
+    vars:
+      num: 3
+      pin: 26
+  key4: !include
+    file: key.yaml
+    vars:
+      num: 4
+      pin: 27

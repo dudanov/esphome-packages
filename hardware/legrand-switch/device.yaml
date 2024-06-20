@@ -15,27 +15,18 @@ packages:
   web: !include ../../common/web.yaml
   buzzer: !include ../../common/buzzer/esp32.yaml
 
+  # Adds two main switch keys
+  key1: !include
+    file: key.yaml
+    vars:
+      num: 1
+      pin: 0
+  key2: !include
+    file: key.yaml
+    vars:
+      num: 2
+      pin: 33
+
 # Onboard status led
 status_led:
-  pin: GPIO32
-
-# Adds two main switch keys
-binary_sensor:
-  - platform: gpio
-    name: Key 1
-    icon: mdi:electric-switch
-    id: key1
-    pin:
-      number: GPIO0
-      inverted: true
-    filters:
-      - delayed_off: 50ms
-  - platform: gpio
-    name: Key 2
-    icon: mdi:electric-switch
-    id: key2
-    pin:
-      number: GPIO33
-      inverted: true
-    filters:
-      - delayed_off: 50ms
+  pin: 32
