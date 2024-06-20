@@ -8,4 +8,4 @@ esp32_ble_tracker:
 
 bluetooth_proxy:
   active: yes
-  cache_services: no
+  cache_services: yes
