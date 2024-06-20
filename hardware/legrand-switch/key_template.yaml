@@ -1,5 +1,5 @@
 defaults:
-  ignore_strapping_warning: false
+  ignore_strapping_warning: "false"
 binary_sensor:
   - platform: gpio
     name: Key ${num}
