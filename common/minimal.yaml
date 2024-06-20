@@ -34,4 +34,6 @@ wifi:
 # RU:  Включает ОТА протокол для перепрошивки устройства по сети.
 # URL: https://esphome.io/components/ota.html
 ota:
-  password: ${ota_password}
+  - platform: esphome
+    safe_mode: true
+    password: ${ota_password}
