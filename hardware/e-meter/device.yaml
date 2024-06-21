@@ -17,7 +17,7 @@ packages:
       id: fw
       name: Firmware
       address: 250
-      register_type: reading
+      register_type: read
       response_size: 32
 
   bootloader_version: !include
