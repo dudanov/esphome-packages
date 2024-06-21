@@ -51,7 +51,7 @@ binary_sensor:
     icon: mdi:timer
     device_class: running
     id: delay_sensor
-    lambda: 'return id(timer).is_running();'
+    lambda: "return id(timer).is_running();"
 
 script:
   # Delay off timer
@@ -139,9 +139,9 @@ number:
     max_value: 10
     step: 0.5
     on_value:
-    - output.set_level:
-        id: hands_detector
-        level: !lambda "return remap(x, 1.0f, 10.0f, id(hands_detector).get_min_power(), id(hands_detector).get_max_power());"
+      - output.set_level:
+          id: hands_detector
+          level: !lambda "return remap(x, 1.0f, 10.0f, id(hands_detector).get_min_power(), id(hands_detector).get_max_power());"
   - platform: template
     name: Off Delay
     id: off_delay

@@ -1,5 +1,5 @@
 substitutions:
-  num_leds: '700'
+  num_leds: "700"
 
 light:
   - platform: neopixelbus
