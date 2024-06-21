@@ -3,8 +3,8 @@
 
 esphome:
   project:
-    name: 'dudanov.e-meter'
-    version: '1.0'
+    name: "dudanov.e-meter"
+    version: "1.0"
 
 packages:
   esp32: !include ../esp32/esp32.yaml
@@ -12,7 +12,7 @@ packages:
   web: !include ../../common/web.yaml
 
   fw_version: !include
-    file: wb_update.yaml
+    file: wb_update_template.yaml
     vars:
       id: fw
       name: Firmware
@@ -21,7 +21,7 @@ packages:
       response_size: 32
 
   bootloader_version: !include
-    file: wb_update.yaml
+    file: wb_update_template.yaml
     vars:
       id: bootloader
       name: Bootloader
@@ -63,7 +63,7 @@ modbus_controller:
     update_interval: 2s
 
 sensor:
-# VOLTAGE
+  # VOLTAGE
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 4313
@@ -76,7 +76,7 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.01
-# FREQUENCY
+  # FREQUENCY
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 4344
@@ -89,7 +89,7 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.01
-# CHANNEL 1
+  # CHANNEL 1
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 5146
@@ -126,7 +126,7 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 1e-5
-# CHANNEL 2
+  # CHANNEL 2
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 5144
@@ -163,7 +163,7 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 1e-5
-# CHANNEL 3
+  # CHANNEL 3
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 5142
@@ -200,7 +200,7 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 1e-5
-# CHANNEL 4
+  # CHANNEL 4
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 9242
@@ -237,7 +237,7 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 1e-5
-# CHANNEL 5
+  # CHANNEL 5
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 9240
@@ -274,7 +274,7 @@ sensor:
     accuracy_decimals: 3
     filters:
       - multiply: 1e-5
-# CHANNEL 6
+  # CHANNEL 6
   - platform: modbus_controller
     modbus_controller_id: map6s
     address: 4880
