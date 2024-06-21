@@ -1,0 +1,119 @@
+# Bedroom Haier Air Conditioner
+
+substitutions:
+  name: bedroom-climate
+  friendly_name: Bedroom Climate
+
+esphome:
+  project:
+    name: "paveldn.haier-climate"
+    version: "1.0"
+
+packages:
+  esp32: !include ../../hardware/esp32/esp32.yaml
+  uart: !include ../../hardware/esp12e/uart.yaml
+  default: !include ../../common/default.yaml
+  web: !include ../../common/web.yaml
+
+climate:
+  - platform: haier
+    id: haier_climate
+    name: None
+    protocol: hon
+    wifi_signal: true
+    beeper: true
+    display: true
+    visual:
+      min_temperature: 16
+      max_temperature: 30
+      temperature_step: 0.5
+    supported_modes:
+      - COOL
+      - HEAT
+      - DRY
+      - FAN_ONLY
+    supported_swing_modes:
+      - VERTICAL
+      - HORIZONTAL
+      - BOTH
+    supported_presets:
+      - AWAY
+      - BOOST
+      - ECO
+      - SLEEP
+    on_alarm_start:
+      then:
+        - logger.log:
+            level: WARN
+            format: 'Alarm activated. Code: %d. Message: "%s"'
+            args: [code, message]
+    on_alarm_end:
+      then:
+        - logger.log:
+            level: INFO
+            format: 'Alarm deactivated. Code: %d. Message: "%s"'
+            args: [code, message]
+
+sensor:
+  - platform: haier
+    haier_id: haier_climate
+
+    compressor_current:
+      name: Compressor Current
+    compressor_frequency:
+      name: Compressor Frequency
+    expansion_valve_open_degree:
+      name: Valve Degree
+    humidity:
+      name: Humidity
+    indoor_coil_temperature:
+      name: Indoor Coil Temperature
+    outdoor_coil_temperature:
+      name: Outdoor Coil Temperature
+    outdoor_defrost_temperature:
+      name: Outdoor Defrost Temperature
+    outdoor_in_air_temperature:
+      name: Outdoor In Air Temperature
+    outdoor_out_air_temperature:
+      name: Outdoor Out Air Temperature
+    outdoor_temperature:
+      name: Outdoor Temperature
+    power:
+      name: Power
+
+text_sensor:
+  - platform: haier
+    haier_id: haier_climate
+
+    cleaning_status:
+      name: Cleaning Status
+    protocol_version:
+      name: Protocol Version
+    appliance_name:
+      name: Appliance Name
+
+binary_sensor:
+  - platform: haier
+    haier_id: haier_climate
+
+    outdoor_fan_status:
+      name: Outdoor Fan Status
+    defrost_status:
+      name: Defrost Status
+    compressor_status:
+      name: Compressor Status
+    indoor_fan_status:
+      name: Indoor Fan Status
+    four_way_valve_status:
+      name: Four Way Valve Status
+    indoor_electric_heating_status:
+      name: Indoor Electric Heating Status
+
+button:
+  - platform: haier
+    haier_id: haier_climate
+
+    self_cleaning:
+      name: Self Cleaning
+    steri_cleaning:
+      name: Steri Cleaning
