@@ -1,8 +1,8 @@
-# Bedroom Haier Air Conditioner
+# Haier Air Conditioner
 
 substitutions:
-  name: bedroom-climate
-  friendly_name: Bedroom Climate
+  name: haier-climate
+  friendly_name: Haier Climate
 
 esphome:
   project:
