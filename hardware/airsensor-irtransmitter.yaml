@@ -1,5 +1,5 @@
 substitutions:
-  buzzer_pin: 25
+  buzzer_pin: GPIO25
 
 esphome:
   project:
