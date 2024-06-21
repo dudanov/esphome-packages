@@ -1,4 +1,6 @@
 packages:
+  # Main switch
+  parent: !include switch-1.yaml
   # Adds two keys of the second switch
   key3: !include
     file: key_template.yaml
