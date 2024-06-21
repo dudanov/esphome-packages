@@ -16,11 +16,18 @@ packages:
     vars:
       id: fw
       name: Firmware
+      address: 250
+      register_type: reading
+      response_size: 32
+
   bootloader_version: !include
     file: wb_update.yaml
     vars:
       id: bootloader
       name: Bootloader
+      address: 330
+      register_type: holding
+      response_size: 14
 
 wifi:
   on_connect:

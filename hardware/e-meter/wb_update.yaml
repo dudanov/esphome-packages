@@ -2,9 +2,9 @@ text_sensor:
   - platform: modbus_controller
     id: ${id}_current
     modbus_controller_id: map6s
-    address: 250
-    register_type: read
-    response_size: 32
+    address: ${address}
+    register_type: ${register_type}
+    response_size: ${response_size}
     skip_updates: 10
     name: ${name} Version
     icon: mdi:identifier
