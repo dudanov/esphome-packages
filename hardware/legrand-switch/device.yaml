@@ -2,7 +2,6 @@
 substitutions:
   name: my-switch
   friendly_name: My Switch
-  buzzer_pin: GPIO4
 
 esphome:
   project:
@@ -13,7 +12,10 @@ packages:
   esp32: !include ../esp32/esp32.yaml
   default: !include ../../common/default.yaml
   web: !include ../../common/web.yaml
-  buzzer: !include ../../common/buzzer/esp32.yaml
+  buzzer: !include
+    file: ../../common/buzzer/esp32.yaml
+    vars:
+      pin: 4
 
   # Adds two main switch keys
   key1: !include

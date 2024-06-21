@@ -5,10 +5,12 @@ packages:
   # Home Assistant API
   api: !include api.yaml
   # Restart button
-  restart: !include restart.yaml
+  restart: !include buttons/restart.yaml
   # Safe Mode button
-  safe-mode: !include safe-mode.yaml
+  safe-mode: !include buttons/safe-mode.yaml
+  # Shutdown button
+  #shutdown: !include buttons/shutdown.yaml
   # Uptime text sensor
-  uptime: !include uptime.yaml
+  uptime: !include sensors/uptime.yaml
   # WiFi Sensors
-  wifi: !include wifi.yaml
+  wifi: !include sensors/wifi.yaml

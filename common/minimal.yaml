@@ -1,6 +1,6 @@
 # EN:  Package substitutions variables.
 # RU:  Подстановочные переменные пакета.
-# URL: https://esphome.io/guides/configuration-types.html
+# URL: https://esphome.io/guides/configuration-types
 substitutions:
   name: esphome-device
   friendly_name: ESPHome Device
@@ -10,7 +10,7 @@ substitutions:
 
 # EN:  Minimal ESPHOME config.
 # RU:  Минимальная конфигурация ESPHOME.
-# URL: https://esphome.io/components/esphome.html
+# URL: https://esphome.io/components/esphome
 esphome:
   name: ${name}
   friendly_name: ${friendly_name}
@@ -20,20 +20,25 @@ esphome:
 
 # EN:  Enables logger.
 # RU:  Включает логгер.
-# URL: https://esphome.io/components/logger.html
+# URL: https://esphome.io/components/logger
 logger:
 
 # EN:  Enables Wi-Fi default access point in fallback mode.
 # RU:  Включает точку доступа Wi-Fi в аварийном режиме.
-# URL: https://esphome.io/components/wifi.html
+# URL: https://esphome.io/components/wifi
 wifi:
   domain: ${domain}
   ap:
     password: ${ap_password}
 
+# EN:  Enables captive portal in fallback mode.
+# RU:  Включает сетевой сервис поиска точки доступа и настройки сети в аварийном режиме.
+# URL: https://esphome.io/components/captive_portal
+captive_portal:
+
 # EN:  Enables OTA
 # RU:  Включает ОТА протокол для перепрошивки устройства по сети.
-# URL: https://esphome.io/components/ota.html
+# URL: https://esphome.io/components/ota/esphome
 ota:
   - platform: esphome
     password: ${ota_password}
