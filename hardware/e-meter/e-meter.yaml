@@ -11,6 +11,34 @@ packages:
   default: !include ../common/default.yaml
   web: !include ../common/web.yaml
 
+  fw_version: !include
+    file: wb_update.yaml
+    vars:
+      id: fw
+      name: Firmware
+  bootloader_version: !include
+    file: wb_update.yaml
+    vars:
+      id: bootloader
+      name: Bootloader
+
+wifi:
+  on_connect:
+    then:
+      - script.execute: get_fw_available
+      - script.execute: get_bootloader_available
+
+time:
+  - platform: homeassistant
+    on_time:
+      # Every 8 hours
+      - seconds: 0
+        minutes: 0
+        hours: /8
+        then:
+          - script.execute: get_fw_available
+          - script.execute: get_bootloader_available
+
 uart:
   tx_pin: 18
   rx_pin:
