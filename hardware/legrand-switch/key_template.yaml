@@ -1,3 +1,6 @@
+# Button template for my switch device
+# Video: https://youtube.com/shorts/ChQIHIe7WzY
+
 defaults:
   ignore_strapping_warning: "no"
 binary_sensor:

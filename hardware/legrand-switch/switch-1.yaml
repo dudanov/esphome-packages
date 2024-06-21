@@ -1,7 +1,5 @@
-# Default names
-substitutions:
-  name: my-switch
-  friendly_name: My Switch
+# Single two-buttons switch
+# Video: https://youtube.com/shorts/ChQIHIe7WzY
 
 esphome:
   project:
@@ -16,8 +14,7 @@ packages:
     file: ../../common/buzzer/esp32.yaml
     vars:
       pin: 4
-
-  # Adds two main switch keys
+  # Two main switch keys
   key1: !include
     file: key_template.yaml
     vars:
