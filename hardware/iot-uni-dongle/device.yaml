@@ -1,13 +1,13 @@
 # EN:  Including additional packages.
 # RU:  Подключение дополнительных пакетов.
 packages:
-  # Default common config
-  default: !include ../../common/default.yaml
-  # HTTP server config
-  web: !include ../../common/web.yaml
   # ESP-12E module minimal config
   esp8266: !include ../esp12e/esp8266.yaml
+  # Default common config
+  default: !include ../../common/default.yaml
   # UART config
   uart: !include ../esp12e/uart.yaml
   # Config ESP-12F onboard led as status
   status: !include ../esp12e/status-led.yaml
+  # HTTP server config
+  web: !include ../../common/web.yaml

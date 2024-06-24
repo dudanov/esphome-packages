@@ -1,7 +1,7 @@
 output:
   - platform: esp8266_pwm
     id: buzzer_output
-    pin: ${buzzer_pin}
+    pin: ${pin}
 
 packages:
   buzzer-common: !include common.yaml

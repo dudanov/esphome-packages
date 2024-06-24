@@ -1,5 +1,9 @@
+# Group of three two-buttons switches
+# Video: https://youtube.com/shorts/ChQIHIe7WzY
+
 packages:
-  # Adds two keys of the third switch
+  parent: !include switch-2.yaml
+  # Two keys of the third switch
   key5: !include
     file: key_template.yaml
     vars:
