@@ -11,3 +11,22 @@ binary_sensor:
       ignore_strapping_warning: ${ignore_strapping_warning}
     filters:
       - delayed_off: 50ms
+    on_click:
+      then:
+        - event.trigger:
+            id: event_key${num}
+            event_type: click
+    on_double_click:
+      then:
+        - event.trigger:
+            id: event_key${num}
+            event_type: double_click
+
+event:
+  - platform: template
+    id: event_key${num}
+    name: Event Key ${num}
+    icon: mdi:electric-switch
+    event_types:
+      - click
+      - double_click
