@@ -3,14 +3,13 @@
 
 defaults:
   ignore_strapping_warning: "no"
+
 binary_sensor:
   - platform: gpio
-    name: Key ${num}
-    icon: mdi:electric-switch
-    id: key${num}
+    internal: yes
     pin:
       number: ${pin}
-      inverted: on
+      inverted: yes
       ignore_strapping_warning: ${ignore_strapping_warning}
     filters:
       - delayed_off: 50ms
@@ -29,7 +28,7 @@ event:
   - platform: template
     id: event_key${num}
     name: Event Key ${num}
-    icon: mdi:electric-switch
+    # icon: mdi:electric-switch
     device_class: button
     event_types:
       - click
