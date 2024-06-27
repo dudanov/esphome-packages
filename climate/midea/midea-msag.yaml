@@ -1,0 +1,26 @@
+# Midea MSAGx-xxN8C2
+climate:
+  - platform: midea
+    icon: mdi:air-conditioner
+    name: None
+    id: midea_climate
+    #autoconf: false
+    visual:
+      min_temperature: 16
+    supported_modes:
+      - FAN_ONLY
+      - HEAT_COOL
+      - COOL
+      - HEAT
+      - DRY
+    supported_presets:
+      - SLEEP
+      - ECO
+      - BOOST
+    custom_presets:
+      - FREEZE_PROTECTION
+    supported_swing_modes:
+      - VERTICAL
+    outdoor_temperature:
+      name: Outdoor Temperature
+      id: midea_outdoor
