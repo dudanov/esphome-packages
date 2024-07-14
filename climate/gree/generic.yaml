@@ -1,0 +1,28 @@
+substitutions:
+  uart_baud_rate: "4800"
+  uart_parity: EVEN
+
+external_components:
+  - source: github://piotrva/esphome_gree_ac
+    components: [sinclair_ac]
+    refresh: 0s
+
+climate:
+  - platform: sinclair_ac
+    name: None
+    horizontal_swing_select:
+      name: Horizontal Swing Mode
+    vertical_swing_select:
+      name: Vertical Swing Mode
+    display_select:
+      name: Display Mode
+    display_unit_select:
+      name: Display Unit
+    plasma_switch:
+      name: Plasma
+    sleep_switch:
+      name: Sleep
+    xfan_switch:
+      name: X-fan
+    save_switch:
+      name: Save/8 Heat

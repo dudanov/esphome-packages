@@ -1,3 +1,7 @@
+substitutions:
+  uart_baud_rate: "9600"
+  uart_parity: "NONE"
+
 # EN:  Enable logging via NETWORK ONLY.
 # RU:  Включает логгер ТОЛЬКО НА СЕТЕВОМ ИНТЕРФЕЙСЕ.
 # URL: https://esphome.io/components/logger.html
@@ -11,4 +15,5 @@ uart:
   id: uart8266
   tx_pin: 1
   rx_pin: 3
-  baud_rate: 9600
+  baud_rate: ${uart_baud_rate}
+  parity: ${uart_parity}
