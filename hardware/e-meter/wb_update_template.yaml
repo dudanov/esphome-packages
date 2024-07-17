@@ -19,14 +19,11 @@ text_sensor:
     address: ${address}
     register_type: ${register_type}
     response_size: ${response_size}
+    raw_encode: ANSI
     skip_updates: 10
     name: ${name} Version
     icon: mdi:identifier
     entity_category: diagnostic
-    lambda: |-
-      std::string result;
-      for (auto ch : data) if (ch) result += ch;
-      return result;
   - platform: template
     id: ${id}_version_available
     name: ${name} Version Available
