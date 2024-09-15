@@ -5,8 +5,7 @@ substitutions:
   name: stream-server
 
 packages:
-  minimal: !include minimal.yaml
-  uart: !include ../esp12e/uart.yaml
+  minimal: !include device.yaml
 
 external_components:
   - source: github://oxan/esphome-stream-server
