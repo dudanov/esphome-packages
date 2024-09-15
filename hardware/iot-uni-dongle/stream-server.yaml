@@ -1,0 +1,42 @@
+# Stream TCP-UART bridge server
+# Default port: 6638
+
+substitutions:
+  name: stream-server
+
+packages:
+  minimal: !include minimal.yaml
+  uart: !include ../esp12e/uart.yaml
+
+external_components:
+  - source: github://oxan/esphome-stream-server
+
+stream_server:
+
+binary_sensor:
+  - platform: stream_server
+    connected:
+      name: Connected
+      on_press:
+        then:
+          - light.turn_on: esp12_led
+      on_release:
+        then:
+          - light.turn_off: esp12_led
+
+sensor:
+  - platform: stream_server
+    connection_count:
+      name: Number of connections
+
+output:
+  - platform: gpio
+    id: esp12_led_output
+    pin:
+      number: 2
+      inverted: on
+
+light:
+  - platform: binary
+    id: esp12_led
+    output: esp12_led_output
