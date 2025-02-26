@@ -5,3 +5,7 @@ esp32:
   board: esp32-s3-devkitc-1
   framework:
     type: ${framework}
+
+esphome:
+  platformio_options:
+    build_unflags: -DARDUINO_USB_MODE -DARDUINO_USB_CDC_ON_BOOT
