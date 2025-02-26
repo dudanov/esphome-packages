@@ -1,0 +1,13 @@
+# EN:  Including additional packages.
+# RU:  Подключение дополнительных пакетов.
+packages:
+  # ESP32-S3 module minimal config
+  esp32: !include ../atoms3u/esp32.yaml
+  # Default common config
+  default: !include ../../common/default.yaml
+  # UART config
+  uart: !include ../atoms3u/uart_rt.yaml
+  # Config ESP-12F onboard led as status
+  #status: !include ../atoms3u/status-led.yaml
+  # HTTP server config
+  web: !include ../../common/web.yaml
