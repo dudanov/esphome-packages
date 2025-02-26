@@ -1,0 +1,10 @@
+# Internal PDM microphone SPM1423 (CLK: GPIO39, DAT: GPIO38)
+microphone:
+  - platform: i2s_audio
+    id: mic
+    adc_type: external
+    i2s_din_pin: 38
+    pdm: true
+
+i2s_audio:
+  i2s_lrclk_pin: 39

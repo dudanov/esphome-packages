@@ -1,0 +1,4 @@
+# IR remote transmitter (internal IR LED between GPIO12 and GND)
+remote_transmitter:
+  pin: 12
+  carrier_duty_percent: 50%

@@ -1,0 +1,12 @@
+substitutions:
+  ws2812_name: "WS2812"
+
+light:
+  - platform: esp32_rmt_led_strip
+    chipset: ws2812
+    id: ws2812
+    name: ${ws2812_name}
+    num_leds: 1
+    pin: 35
+    rgb_order: GRB
+    rmt_channel: 0

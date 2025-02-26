@@ -1,0 +1,28 @@
+# User button (inverted, active low)
+binary_sensor:
+  - platform: gpio
+    id: key
+    pin:
+      number: 41
+      inverted: true
+    filters:
+      - delayed_off: 10ms
+    on_click:
+      then:
+        - event.trigger:
+            id: event_key
+            event_type: click
+    on_double_click:
+      then:
+        - event.trigger:
+            id: event_key
+            event_type: double_click
+
+event:
+  - platform: template
+    id: event_key
+    name: Event Key
+    device_class: button
+    event_types:
+      - click
+      - double_click

@@ -1,0 +1,7 @@
+# Enable UART on USB port (USB.2: RX, USB.3: TX)
+packages:
+  uart: !include
+    file: templates/uart.yaml
+    vars:
+      tx: 20
+      rx: 19
