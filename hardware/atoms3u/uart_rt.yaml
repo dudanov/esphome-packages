@@ -3,5 +3,5 @@ packages:
   uart: !include
     file: templates/uart.yaml
     vars:
-      tx: GPIO20
-      rx: GPIO19
+      tx: 20
+      rx: 19
