@@ -8,5 +8,5 @@ esp32:
 
 esphome:
   platformio_options:
-    build_unflags: -D ARDUINO_USB_MODE
+    build_unflags: -D ARDUINO_USB_MODE -D ARDUINO_USB_CDC_ON_BOOT
     build_flags: -D ARDUINO_USB_MODE=0 -D ARDUINO_USB_CDC_ON_BOOT=0
