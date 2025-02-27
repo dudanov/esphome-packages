@@ -14,6 +14,10 @@ logger:
 uart:
   id: uart32s3
   tx_pin: 20
-  rx_pin: 19
+  rx_pin:
+    number: 19
+    mode:
+      input: true
+      pullup: true
   baud_rate: ${uart_baud_rate}
   parity: ${uart_parity}
