@@ -13,7 +13,7 @@ logger:
 # URL: https://esphome.io/components/uart.html
 uart:
   id: uart32s3
-  tx_pin: ${tx}
-  rx_pin: ${rx}
+  tx_pin: 19
+  rx_pin: 20
   baud_rate: ${uart_baud_rate}
   parity: ${uart_parity}
