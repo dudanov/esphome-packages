@@ -21,7 +21,6 @@ climate:
     name: None
     protocol: hon
     wifi_signal: true
-    beeper: true
     display: true
     visual:
       min_temperature: 16
@@ -39,7 +38,6 @@ climate:
     supported_presets:
       - AWAY
       - BOOST
-      - ECO
       - SLEEP
     on_alarm_start:
       then:
@@ -112,8 +110,19 @@ binary_sensor:
 button:
   - platform: haier
     haier_id: haier_climate
-
     self_cleaning:
       name: Self Cleaning
     steri_cleaning:
       name: Steri Cleaning
+
+switch:
+  - platform: haier
+    haier_id: haier_climate
+    beeper:
+      name: Beeper
+    health_mode:
+      name: Health mode
+    display:
+      name: Display
+    quiet_mode:
+      name: Quiet mode
