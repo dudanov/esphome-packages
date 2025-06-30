@@ -15,9 +15,8 @@ packages:
 # External components
 external_components:
   - source: github://dudanov/esphome-components
-    components:
-      - esp32_dac_generator
-      - ir_proximity
+    components: [esp32_dac_generator, ir_proximity]
+    refresh: 0d
 
 # Remote receiver for proximity sensor
 remote_receiver:
