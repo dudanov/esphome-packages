@@ -1,17 +1,20 @@
 # This light for my project: https://github.com/dudanov/feron-light-advanced-control
-# feron_light.h must be copied in HASS /config/esphome folder
+
+substitutions:
+  feron_name: Feron Light
 
 external_components:
   - source: github://dudanov/esphome-components
-    components:
-      - feron
+    components: [feron]
+    refresh: 0d
 
 light:
   - platform: feron
-    name: Feron
-    id: cabinet_light
+    id: feron_light
+    name: ${feron_name}
     fade_switch:
-      name: Feron Fade Effect
+      id: feron_fade_switch
+      name: ${feron_name} Fade Effect
 
 remote_transmitter:
   id: ir_remote
