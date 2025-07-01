@@ -1,0 +1,11 @@
+# Binary room light template
+
+light:
+  - platform: binary
+    name: ${room} Light
+    output: output_pin{$pin}
+
+output:
+  - platform: gpio
+    id: output_pin{$pin}
+    pin: {$pin}
