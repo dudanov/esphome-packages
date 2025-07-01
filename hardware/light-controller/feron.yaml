@@ -12,6 +12,7 @@ light:
   - platform: feron
     id: feron_light
     name: ${feron} Ceiling Light
+    icon: mdi:ceiling-light
 
     fade_switch:
       id: feron_fade_switch
