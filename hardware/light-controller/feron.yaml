@@ -11,12 +11,12 @@ external_components:
 light:
   - platform: feron
     id: feron_light
-    name: ${feron} Ceiling Light
+    name: ${feron} Feron Light
     icon: mdi:ceiling-light
 
     fade_switch:
       id: feron_fade_switch
-      name: ${feron} Ceiling Light Fade Effect
+      name: ${feron} Feron Light Fade Effect
 
 remote_transmitter:
   id: ir_remote
