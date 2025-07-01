@@ -1,7 +1,7 @@
 # This light for my project: https://github.com/dudanov/feron-light-advanced-control
 
 substitutions:
-  feron_name: Feron Light
+  room_name: Bedroom
 
 external_components:
   - source: github://dudanov/esphome-components
@@ -11,10 +11,11 @@ external_components:
 light:
   - platform: feron
     id: feron_light
-    name: ${feron_name}
+    name: ${room_name} Ceiling Light
+
     fade_switch:
       id: feron_fade_switch
-      name: ${feron_name} Fade Effect
+      name: ${room_name} Ceiling Light Fade Effect
 
 remote_transmitter:
   id: ir_remote
