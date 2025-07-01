@@ -3,9 +3,9 @@
 light:
   - platform: binary
     name: ${room} Light
-    output: output_pin{$pin}
+    output: output_pin{$gpio}
 
 output:
   - platform: gpio
-    id: output_pin{$pin}
-    pin: {$pin}
+    id: output_pin{$gpio}
+    pin: {$gpio}
