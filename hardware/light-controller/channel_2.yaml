@@ -1,0 +1,9 @@
+substitutions:
+  channel_2: Room
+
+packages:
+  channel_2: !include
+    file: channel_template.yaml
+    vars:
+      room: ${channel_2}
+      gpio: 14
