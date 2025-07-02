@@ -1,9 +1,9 @@
 substitutions:
-  channel_3: Room
+  channel_3: Room 3
 
 packages:
   channel_3: !include
     file: channel_template.yaml
     vars:
-      room: ${channel_3}
+      name: ${channel_3}
       gpio: 13

@@ -2,7 +2,7 @@
 
 light:
   - platform: binary
-    name: ${room} Light
+    name: ${name}
     icon: mdi:ceiling-light
     output: output_pin${gpio}
 
