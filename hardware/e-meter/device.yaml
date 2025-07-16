@@ -10,10 +10,10 @@ esphome:
     name: "Electrical Panel"
   devices:
     - id: map6s_device
-      name: "MAP6S"
+      name: "WirenBoard WB-MAP6S"
       area_id: electrical_panel
     - id: ce102m_device
-      name: "CE102M"
+      name: "Energomera CE102M"
       area_id: electrical_panel
 
 packages:
