@@ -3,7 +3,8 @@ substitutions:
 
 light:
   - platform: neopixelbus
-    name: NeoPixel 1
+    device_id: led_strip_device
+    name: None
     num_leds: ${num_leds}
     power_supply: led_power
     variant: SK6812
