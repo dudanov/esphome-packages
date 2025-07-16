@@ -381,9 +381,9 @@ button:
           value: 0
 
 api:
-  services:
-    # Service for setting the value of the energy meter
-    - service: set_total_energy
+  actions:
+    # Action for setting the value of the energy meter
+    - action: set_total_energy
       device_id: ce102m_device
       variables:
         kwh: float
