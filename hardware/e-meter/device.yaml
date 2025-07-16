@@ -5,6 +5,16 @@ esphome:
   project:
     name: "dudanov.e-meter"
     version: "1.0"
+  area:
+    id: electrical_panel
+    name: "Electrical Panel"
+  devices:
+    - id: map6s_device
+      name: "MAP6S"
+      area_id: electrical_panel
+    - id: ce102m_device
+      name: "CE102M"
+      area_id: electrical_panel
 
 packages:
   esp32: !include ../esp32/esp32.yaml
@@ -65,6 +75,7 @@ modbus_controller:
 sensor:
   # VOLTAGE
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4313
     name: Voltage
@@ -78,6 +89,7 @@ sensor:
       - multiply: 0.01
   # FREQUENCY
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4344
     name: Frequency
@@ -91,6 +103,7 @@ sensor:
       - multiply: 0.01
   # CHANNEL 1
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 5146
     name: Current CH1
@@ -103,6 +116,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4870
     name: Power CH1
@@ -115,6 +129,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4620
     name: Energy CH1
@@ -128,6 +143,7 @@ sensor:
       - multiply: 1e-5
   # CHANNEL 2
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 5144
     name: Current CH2
@@ -140,6 +156,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4868
     name: Power CH2
@@ -152,6 +169,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4616
     name: Energy CH2
@@ -165,6 +183,7 @@ sensor:
       - multiply: 1e-5
   # CHANNEL 3
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 5142
     name: Current CH3
@@ -177,6 +196,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4866
     name: Power CH3
@@ -189,6 +209,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4612
     name: Energy CH3
@@ -202,6 +223,7 @@ sensor:
       - multiply: 1e-5
   # CHANNEL 4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 9242
     name: Current CH4
@@ -214,6 +236,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8966
     name: Power CH4
@@ -226,6 +249,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8716
     name: Energy CH4
@@ -239,6 +263,7 @@ sensor:
       - multiply: 1e-5
   # CHANNEL 5
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 9240
     name: Current CH5
@@ -251,6 +276,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8964
     name: Power CH5
@@ -263,6 +289,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8712
     name: Energy CH5
@@ -276,6 +303,7 @@ sensor:
       - multiply: 1e-5
   # CHANNEL 6
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 4880
     name: Current CH6
@@ -288,6 +316,7 @@ sensor:
     filters:
       - multiply: 2.44141e-7
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8962
     name: Power CH6
@@ -300,6 +329,7 @@ sensor:
     filters:
       - multiply: 2.44141e-4
   - platform: modbus_controller
+    device_id: map6s_device
     modbus_controller_id: map6s
     address: 8708
     name: Energy CH6
@@ -314,6 +344,7 @@ sensor:
 
   # Wattmeter based on the pulse output of an electric meter
   - platform: pulse_meter
+    device_id: ce102m_device
     id: sensor_energy_pulse_meter
     name: Power
     device_class: power
@@ -328,6 +359,7 @@ sensor:
       - multiply: 30
     total:
       name: Energy
+      device_id: ce102m_device
       id: sensor_total_energy
       unit_of_measurement: kWh
       state_class: total_increasing
@@ -339,6 +371,7 @@ sensor:
 # Reset total energy button
 button:
   - platform: template
+    device_id: ce102m_device
     name: Energy Reset
     id: button_reset_total
     entity_category: config
@@ -351,6 +384,7 @@ api:
   services:
     # Service for setting the value of the energy meter
     - service: set_total_energy
+      device_id: ce102m_device
       variables:
         kwh: float
       then:
