@@ -384,7 +384,6 @@ api:
   actions:
     # Action for setting the value of the energy meter
     - action: set_total_energy
-      device_id: ce102m_device
       variables:
         kwh: float
       then:
