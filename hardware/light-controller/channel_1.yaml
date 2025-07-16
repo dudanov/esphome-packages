@@ -1,9 +1,9 @@
 substitutions:
-  channel_1: Room 1
+  ch1_dev: corridor
 
 packages:
   channel_1: !include
     file: channel_template.yaml
     vars:
-      name: ${channel_1}
+      dev: ${ch1_dev}
       gpio: 27
