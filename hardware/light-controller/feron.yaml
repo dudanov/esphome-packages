@@ -1,7 +1,7 @@
 # This light for my project: https://github.com/dudanov/feron-light-advanced-control
 
 substitutions:
-  feron_dev: Bedroom
+  feron_dev: cabinet
 
 external_components:
   - source: github://dudanov/esphome-components
@@ -17,6 +17,7 @@ light:
 
     fade_switch:
       id: feron_fade_switch
+      device_id: ${feron_dev}_device
       name: Fade Effect
 
 remote_transmitter:
