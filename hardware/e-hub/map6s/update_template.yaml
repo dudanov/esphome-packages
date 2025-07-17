@@ -31,7 +31,6 @@ text_sensor:
     id: ${id}_version_available
     device_id: map6s_device
     name: ${name} Version Available
-    update_interval: never
     icon: mdi:identifier
     entity_category: diagnostic
     on_value:
