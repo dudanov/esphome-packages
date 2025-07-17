@@ -1,0 +1,9 @@
+substitutions:
+  ch3_id: bathroom
+
+packages:
+  ch3: !include
+    file: template.yaml
+    vars:
+      id: ${ch3_id}
+      pin: 13

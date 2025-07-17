@@ -1,9 +1,0 @@
-substitutions:
-  ch3_dev: bathroom
-
-packages:
-  channel_3: !include
-    file: channel_template.yaml
-    vars:
-      dev: ${ch3_dev}
-      gpio: 13

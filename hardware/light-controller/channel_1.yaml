@@ -1,9 +1,0 @@
-substitutions:
-  ch1_dev: corridor
-
-packages:
-  channel_1: !include
-    file: channel_template.yaml
-    vars:
-      dev: ${ch1_dev}
-      gpio: 27

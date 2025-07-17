@@ -1,0 +1,9 @@
+substitutions:
+  ch4_id: kitchen
+
+packages:
+  ch4: !include
+    file: template.yaml
+    vars:
+      id: ${ch4_id}
+      pin: 4

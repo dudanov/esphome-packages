@@ -1,9 +1,0 @@
-substitutions:
-  ch4_dev: kitchen
-
-packages:
-  channel_4: !include
-    file: channel_template.yaml
-    vars:
-      dev: ${ch4_dev}
-      gpio: 4

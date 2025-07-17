@@ -2,12 +2,13 @@
 
 light:
   - platform: binary
-    device_id: ${dev}_device
+    id: ${id}_light
+    device_id: ${id}_device
     name: None
     icon: mdi:ceiling-light
-    output: output_pin${gpio}
+    output: pin${pin}_output
 
 output:
   - platform: gpio
-    id: output_pin${gpio}
-    pin: ${gpio}
+    id: pin${pin}_output
+    pin: ${pin}

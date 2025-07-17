@@ -1,0 +1,9 @@
+substitutions:
+  ch2_id: toilet
+
+packages:
+  ch2: !include
+    file: template.yaml
+    vars:
+      id: ${ch2_id}
+      pin: 14

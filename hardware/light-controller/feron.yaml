@@ -1,7 +1,7 @@
 # This light for my project: https://github.com/dudanov/feron-light-advanced-control
 
 substitutions:
-  feron_dev: cabinet
+  feron_id: cabinet
 
 external_components:
   - source: github://dudanov/esphome-components
@@ -10,18 +10,17 @@ external_components:
 
 light:
   - platform: feron
-    id: feron_light
+    id: ${feron_id}_light
+    device_id: ${feron_id}_device
     name: None
-    device_id: ${feron_dev}_device
     icon: mdi:ceiling-light
-
     fade_switch:
-      id: feron_fade_switch
-      device_id: ${feron_dev}_device
+      id: ${feron_id}_fade_switch
+      device_id: ${feron_id}_device
       name: Fade Effect
 
 remote_transmitter:
-  id: ir_remote
+  id: ir_transmitter
   pin: 25
   carrier_duty_percent: 100%
 
