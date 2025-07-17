@@ -2,7 +2,7 @@
 # https://wirenboard.com/wiki/WB-MAP6S_Modbus_Power_Meter
 
 substitutions:
-  name: e-meter
+  name: e-hub
   friendly_name: Electricity Hub
 
 packages:
@@ -31,7 +31,7 @@ packages:
 esphome:
   min_version: 2025.7.0
   project:
-    name: "dudanov.electricity-hub"
+    name: "dudanov.e-hub"
     version: "1.0"
   area:
     id: electrical_panel
