@@ -1,0 +1,40 @@
+sensor:
+  - platform: modbus_controller
+    device_id: map6s_device
+    modbus_controller_id: map6s
+    address: ${current_register}
+    name: Current CH${channel}
+    state_class: measurement
+    device_class: current
+    unit_of_measurement: A
+    register_type: read
+    value_type: U_DWORD
+    accuracy_decimals: 2
+    filters:
+      - multiply: 2.44141e-7
+  - platform: modbus_controller
+    device_id: map6s_device
+    modbus_controller_id: map6s
+    address: ${power_register}
+    name: Power CH${channel}
+    state_class: measurement
+    device_class: power
+    unit_of_measurement: W
+    register_type: read
+    value_type: S_DWORD
+    accuracy_decimals: 0
+    filters:
+      - multiply: 2.44141e-4
+  - platform: modbus_controller
+    device_id: map6s_device
+    modbus_controller_id: map6s
+    address: ${energy_register}
+    name: Energy CH${channel}
+    state_class: total_increasing
+    device_class: energy
+    unit_of_measurement: kWh
+    register_type: read
+    value_type: U_QWORD_R
+    accuracy_decimals: 3
+    filters:
+      - multiply: 1e-5
