@@ -379,7 +379,6 @@ button:
     device_id: ce102m_device
     name: Energy Reset
     id: button_reset_total
-    entity_category: config
     on_press:
       - pulse_meter.set_total_pulses:
           id: sensor_energy_pulse_meter
