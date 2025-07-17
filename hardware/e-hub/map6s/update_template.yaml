@@ -13,12 +13,6 @@ script:
                 id: ${id}_version_available
                 state: !lambda "return body;"
 
-  - id: set_${id}_available
-    then:
-      - lambda: |-
-          if (id(${id}_version).state.empty() || id(${id}_version_available).state.empty()) return;
-          id(${id}_update_available).publish_state(id(${id}_version).state != id(${id}_version_available).state);
-
 text_sensor:
   - platform: modbus_controller
     id: ${id}_version
@@ -33,7 +27,9 @@ text_sensor:
     icon: mdi:identifier
     entity_category: diagnostic
     on_value:
-      script.execute: set_${id}_available
+      binary_sensor.template.publish:
+        id: ${id}_update_available
+        state: !lambda "return x != id(${id}_version_available).state;"
 
   - platform: template
     id: ${id}_version_available
@@ -43,7 +39,9 @@ text_sensor:
     icon: mdi:identifier
     entity_category: diagnostic
     on_value:
-      script.execute: set_${id}_available
+      binary_sensor.template.publish:
+        id: ${id}_update_available
+        state: !lambda "return x != id(${id}_version).state;"
 
 binary_sensor:
   - platform: template
