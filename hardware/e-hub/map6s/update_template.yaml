@@ -27,9 +27,7 @@ text_sensor:
     icon: mdi:identifier
     entity_category: diagnostic
     on_value:
-      binary_sensor.template.publish:
-        id: ${id}_update_available
-        state: !lambda "return x != id(${id}_version_available).state;"
+      lambda: "id(${id}_update_available).publish_state(id(${id}_version_available).state != x);"
 
   - platform: template
     id: ${id}_version_available
@@ -39,9 +37,7 @@ text_sensor:
     icon: mdi:identifier
     entity_category: diagnostic
     on_value:
-      binary_sensor.template.publish:
-        id: ${id}_update_available
-        state: !lambda "return x != id(${id}_version).state;"
+      lambda: "id(${id}_update_available).publish_state(id(${id}_version).state != x);"
 
 binary_sensor:
   - platform: template
