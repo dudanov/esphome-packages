@@ -1,3 +1,4 @@
+# Config template for a single channel
 sensor:
   - platform: modbus_controller
     device_id: map6s_device

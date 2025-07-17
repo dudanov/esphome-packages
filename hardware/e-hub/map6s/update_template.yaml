@@ -1,3 +1,4 @@
+# Config template for firmware update
 http_request:
   verify_ssl: false
 
