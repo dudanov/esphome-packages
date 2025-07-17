@@ -1,15 +1,18 @@
 substitutions:
-  num_leds: "700"
+  led_id: led
+  num_leds: "738"
 
 light:
-  - platform: neopixelbus
-    device_id: led_strip_device
+  - platform: esp32_rmt_led_strip
+    device_id: ${led_id}_device
     name: None
-    num_leds: ${num_leds}
-    power_supply: led_power
-    variant: SK6812
-    type: GRBW
+    rgb_order: GRB
+    is_rgbw: true
     pin: 32
+    num_leds: ${num_leds}
+    chipset: SK6812
+    use_psram: false
+    power_supply: led_power
     effects:
       - addressable_rainbow:
       - addressable_color_wipe:
