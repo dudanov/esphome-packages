@@ -2,7 +2,7 @@
 # Video: https://youtube.com/shorts/ChQIHIe7WzY
 
 packages:
-  parent: !include switch-1.yaml
+  parent: !include sw1.yaml
   # Two keys of the second switch
   key3: !include
     file: template.yaml
