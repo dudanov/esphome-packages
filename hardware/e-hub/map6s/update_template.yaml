@@ -13,6 +13,12 @@ script:
                 id: ${id}_version_available
                 state: !lambda "return body;"
 
+  - id: set_${id}_available
+    then:
+      - lambda: |-
+          if (id(${id}_version).state.empty() || id(${id}_version_available).state.empty()) return;
+          id(${id}_update_available).publish_state(id(${id}_version).state != id(${id}_version_available).state);
+
 text_sensor:
   - platform: modbus_controller
     id: ${id}_version
@@ -26,6 +32,9 @@ text_sensor:
     name: ${name} Version
     icon: mdi:identifier
     entity_category: diagnostic
+    on_value:
+      script.execute: set_${id}_available
+
   - platform: template
     id: ${id}_version_available
     device_id: map6s_device
@@ -33,6 +42,8 @@ text_sensor:
     update_interval: never
     icon: mdi:identifier
     entity_category: diagnostic
+    on_value:
+      script.execute: set_${id}_available
 
 binary_sensor:
   - platform: template
@@ -41,6 +52,3 @@ binary_sensor:
     name: ${name} Update
     device_class: update
     entity_category: diagnostic
-    lambda: |-
-      if (id(${id}_version).state.empty() || id(${id}_version_available).state.empty()) return {};
-      return id(${id}_version).state != id(${id}_version_available).state;
