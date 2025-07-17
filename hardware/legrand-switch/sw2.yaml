@@ -5,12 +5,12 @@ packages:
   parent: !include switch-1.yaml
   # Two keys of the second switch
   key3: !include
-    file: key_template.yaml
+    file: template.yaml
     vars:
       num: 3
       pin: 26
   key4: !include
-    file: key_template.yaml
+    file: template.yaml
     vars:
       num: 4
       pin: 27

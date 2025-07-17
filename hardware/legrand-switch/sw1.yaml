@@ -16,13 +16,13 @@ packages:
       pin: 4
   # Two main switch keys
   key1: !include
-    file: key_template.yaml
+    file: template.yaml
     vars:
       num: 1
       pin: 0
       ignore_strapping_warning: "yes"
   key2: !include
-    file: key_template.yaml
+    file: template.yaml
     vars:
       num: 2
       pin: 33
