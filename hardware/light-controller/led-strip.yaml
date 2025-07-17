@@ -6,6 +6,7 @@ light:
   - platform: esp32_rmt_led_strip
     device_id: ${led_id}_device
     name: None
+    icon: mdi:led-strip-variant
     rgb_order: GRB
     is_rgbw: true
     pin: 32
