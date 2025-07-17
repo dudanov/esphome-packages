@@ -1,27 +1,16 @@
 # Device reading Modbus 6-CH E-Meter WirenBoard WB-MAP6S
 # https://wirenboard.com/wiki/WB-MAP6S_Modbus_Power_Meter
 
-esphome:
-  project:
-    name: "dudanov.e-meter"
-    version: "1.0"
-  area:
-    id: electrical_panel
-    name: "Electrical Panel"
-  devices:
-    - id: map6s_device
-      name: "WirenBoard WB-MAP6S"
-      area_id: electrical_panel
-    - id: ce102m_device
-      name: "Energomera CE102M"
-      area_id: electrical_panel
+substitutions:
+  name: e-meter
+  friendly_name: Electricity Hub
 
 packages:
   esp32: !include ../esp32/esp32.yaml
   default: !include ../../common/default.yaml
   web: !include ../../common/web.yaml
 
-  fw_version: !include
+  firmware: !include
     file: wb_update_template.yaml
     vars:
       id: fw
@@ -30,7 +19,7 @@ packages:
       register_type: read
       response_size: 32
 
-  bootloader_version: !include
+  bootloader: !include
     file: wb_update_template.yaml
     vars:
       id: bootloader
@@ -38,6 +27,22 @@ packages:
       address: 330
       register_type: holding
       response_size: 14
+
+esphome:
+  min_version: 2025.7.0
+  project:
+    name: "dudanov.electricity-hub"
+    version: "1.0"
+  area:
+    id: electrical_panel
+    name: "Electrical Panel"
+  devices:
+    - id: map6s_device
+      name: "WirenBoard MAP6S"
+      area_id: electrical_panel
+    - id: ce102m_device
+      name: "EnergoMera CE102M"
+      area_id: electrical_panel
 
 wifi:
   on_connect:
