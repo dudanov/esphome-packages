@@ -27,7 +27,7 @@ binary_sensor:
 event:
   - platform: template
     id: event_key${num}
-    name: Event Key ${num}
+    name: Key ${num}
     # icon: mdi:electric-switch
     device_class: button
     event_types:
