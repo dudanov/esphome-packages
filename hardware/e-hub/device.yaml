@@ -393,4 +393,4 @@ api:
       then:
         - pulse_meter.set_total_pulses:
             id: sensor_energy_pulse_meter
-            value: !lambda return kwh * 2e3f;
+            value: !lambda return kwh * 2000;
