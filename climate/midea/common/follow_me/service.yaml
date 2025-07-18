@@ -1,7 +1,7 @@
 # Service for setting up FollowMe temperature
 api:
-  services:
-    - service: follow_me
+  actions:
+    - action: follow_me
       variables:
         temperature: float
       then:

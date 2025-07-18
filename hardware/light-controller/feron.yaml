@@ -25,15 +25,15 @@ remote_transmitter:
   carrier_duty_percent: 100%
 
 #api:
-#  services:
-#    - service: feron_preset_load
+#  actions:
+#    - action: feron_preset_load
 #      # Load specified preset from internal EEPROM
 #      variables:
 #        preset: int
 #      then:
 #        - lambda: |-
 #            FeronLightOutput::preset_load(id(ir_remote), preset, !id(fade_switch).state);
-#    - service: feron_preset_save
+#    - action: feron_preset_save
 #      # Save current state as specified preset to internal EEPROM
 #      variables:
 #        preset: int

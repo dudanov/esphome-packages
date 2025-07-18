@@ -2,8 +2,8 @@ rtttl:
   output: buzzer_output
 
 api:
-  services:
-    - service: play_rtttl
+  actions:
+    - action: play_rtttl
       variables:
         song: string
       then:
