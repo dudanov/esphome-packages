@@ -26,7 +26,7 @@ text_sensor:
     entity_category: diagnostic
     on_value:
       lambda: |-
-        auto state = id(${id}_version_available).state;
+        const auto &state = id(${id}_version_available).state;
         if (state.empty()) return;
         id(${id}_update_available).publish_state(state != x);
 
@@ -38,7 +38,7 @@ text_sensor:
     entity_category: diagnostic
     on_value:
       lambda: |-
-        auto state = id(${id}_version).state;
+        const auto &state = id(${id}_version).state;
         if (state.empty()) return;
         id(${id}_update_available).publish_state(state != x);
 
