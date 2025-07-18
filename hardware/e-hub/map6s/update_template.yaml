@@ -36,6 +36,7 @@ text_sensor:
     name: ${name} Version Available
     icon: mdi:identifier
     entity_category: diagnostic
+    update_interval: never
     on_value:
       lambda: |-
         const auto &y = id(${id}_version).state;
