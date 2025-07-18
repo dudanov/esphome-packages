@@ -101,7 +101,7 @@ sensor:
   - platform: combination
     type: sum
     device_id: map6s_device
-    name: Power
+    name: Total Power
     sources:
       - source: map6s_power1
       - source: map6s_power2
@@ -112,7 +112,7 @@ sensor:
   - platform: combination
     type: sum
     device_id: map6s_device
-    name: Energy
+    name: Total Energy
     sources:
       - source: map6s_energy1
       - source: map6s_energy2
