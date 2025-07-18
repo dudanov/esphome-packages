@@ -26,8 +26,9 @@ text_sensor:
     entity_category: diagnostic
     on_value:
       lambda: |-
-        if (id(${id}_version_available).empty()) return;
-        id(${id}_update_available).publish_state(id(${id}_version_available).state != x);
+        auto state = id(${id}_version_available).state;
+        if (state.empty()) return;
+        id(${id}_update_available).publish_state(state != x);
 
   - platform: template
     id: ${id}_version_available
@@ -37,8 +38,9 @@ text_sensor:
     entity_category: diagnostic
     on_value:
       lambda: |-
-        if (id(${id}_version).empty()) return;
-        id(${id}_update_available).publish_state(id(${id}_version).state != x);
+        auto state = id(${id}_version).state;
+        if (state.empty()) return;
+        id(${id}_update_available).publish_state(state != x);
 
 binary_sensor:
   - platform: template
