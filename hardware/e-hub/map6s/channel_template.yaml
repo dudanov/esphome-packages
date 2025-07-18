@@ -33,7 +33,6 @@ sensor:
     name: "CH${channel} Factor"
     state_class: measurement
     device_class: power_factor
-    unit_of_measurement: None
     register_type: read
     value_type: S_WORD
     accuracy_decimals: 2
