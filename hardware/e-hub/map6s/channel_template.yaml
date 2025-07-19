@@ -1,4 +1,5 @@
 # Config template for a single channel
+
 sensor:
   - platform: modbus_controller
     id: map6s_current${channel}
@@ -14,6 +15,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - multiply: 2.44141e-7
+
   - platform: modbus_controller
     id: map6s_power${channel}
     device_id: map6s_device
@@ -28,6 +30,7 @@ sensor:
     accuracy_decimals: 0
     filters:
       - multiply: 2.44141e-4
+
   - platform: modbus_controller
     id: map6s_factor${channel}
     device_id: map6s_device
@@ -41,6 +44,7 @@ sensor:
     accuracy_decimals: 2
     filters:
       - multiply: 0.001
+
   - platform: modbus_controller
     id: map6s_energy${channel}
     device_id: map6s_device
@@ -52,6 +56,6 @@ sensor:
     unit_of_measurement: kWh
     register_type: read
     value_type: U_QWORD_R
-    accuracy_decimals: 3
+    accuracy_decimals: 1
     filters:
       - multiply: 1e-5

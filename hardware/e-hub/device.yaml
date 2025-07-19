@@ -17,12 +17,15 @@ packages:
 
 esphome:
   min_version: 2025.7.0
+
   project:
     name: "dudanov.e-hub"
     version: "1.0"
+
   area:
     id: electrical_panel
     name: "Electrical Panel"
+
   devices:
     - id: map6s_device
       name: "WirenBoard MAP6S"
@@ -49,11 +52,11 @@ time:
           - script.execute: get_bootloader_available
 
 uart:
+  baud_rate: 115200
   tx_pin: 18
   rx_pin:
     number: 5
     ignore_strapping_warning: yes
-  baud_rate: 115200
 
 modbus:
   flow_control_pin: 17
@@ -81,7 +84,7 @@ sensor:
       unit_of_measurement: kWh
       state_class: total_increasing
       device_class: energy
-      accuracy_decimals: 3
+      accuracy_decimals: 1
       filters:
         - multiply: 5e-4
 
