@@ -72,6 +72,7 @@ number:
     value_type: U_WORD
     skip_updates: 99
     entity_category: config
+    unit_of_measurement: K
 
   # Фазовая задержка токового трансформатора
   - platform: modbus_controller
@@ -84,3 +85,4 @@ number:
     value_type: S_WORD
     skip_updates: 99
     entity_category: config
+    unit_of_measurement: Δ°
