@@ -20,7 +20,7 @@ text_sensor:
     register_type: ${register_type}
     response_size: ${response_size}
     raw_encode: ANSI
-    skip_updates: 10
+    skip_updates: 99
     name: ${name} Version
     icon: mdi:identifier
     entity_category: diagnostic

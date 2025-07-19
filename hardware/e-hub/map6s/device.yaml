@@ -33,6 +33,9 @@ packages:
       power_register: 4870
       factor_register: 4287
       energy_register: 4620
+      # config numbers
+      turns_register: 5218
+      phi_register: 5221
 
   channel2: !include
     file: channel_template.yaml
@@ -42,6 +45,9 @@ packages:
       power_register: 4868
       factor_register: 4286
       energy_register: 4616
+      # config numbers
+      turns_register: 5217
+      phi_register: 5220
 
   channel3: !include
     file: channel_template.yaml
@@ -51,6 +57,9 @@ packages:
       power_register: 4866
       factor_register: 4285
       energy_register: 4612
+      # config numbers
+      turns_register: 5216
+      phi_register: 5219
 
   channel4: !include
     file: channel_template.yaml
@@ -60,6 +69,9 @@ packages:
       power_register: 8966
       factor_register: 8383
       energy_register: 8716
+      # config numbers
+      turns_register: 9314
+      phi_register: 9317
 
   channel5: !include
     file: channel_template.yaml
@@ -69,6 +81,9 @@ packages:
       power_register: 8964
       factor_register: 8382
       energy_register: 8712
+      # config numbers
+      turns_register: 9313
+      phi_register: 9316
 
   channel6: !include
     file: channel_template.yaml
@@ -78,6 +93,9 @@ packages:
       power_register: 8962
       factor_register: 8381
       energy_register: 8708
+      # config numbers
+      turns_register: 9312
+      phi_register: 9315
 
 sensor:
   - platform: modbus_controller
