@@ -3,21 +3,21 @@ http_request:
   verify_ssl: false
 
 script:
-  - id: ${device_id}_fetch_${id}_version
+  - id: ${id}_fetch_${sw_id}_version
     then:
       - http_request.get:
-          url: https://fw-releases.wirenboard.com/${id}/by-signature/${signature_id}/main/latest.txt
+          url: https://fw-releases.wirenboard.com/${sw_id}/by-signature/${signature_id}/main/latest.txt
           capture_response: true
           on_response:
             lambda: |-
               body.pop_back();
-              id(${device_id}_${id}_version_available).publish_state(body);
+              id(${id}_${sw_id}_version_available).publish_state(body);
 
 text_sensor:
   - platform: modbus_controller
-    id: ${device_id}_${id}_version
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_${sw_id}_version
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${address}
     register_type: ${register_type}
     response_size: ${response_size}
@@ -28,27 +28,27 @@ text_sensor:
     entity_category: diagnostic
     on_value:
       lambda: |-
-        const auto &y = id(${device_id}_${id}_version_available).state;
+        const auto &y = id(${id}_${sw_id}_version_available).state;
         if (x.empty() || y.empty()) return;
-        id(${device_id}_${id}_update_available).publish_state(x != y);
+        id(${id}_${sw_id}_update_available).publish_state(x != y);
 
   - platform: template
-    id: ${device_id}_${id}_version_available
-    device_id: ${device_id}_device
+    id: ${id}_${sw_id}_version_available
+    device_id: ${id}_device
     name: ${name} Version Available
     icon: mdi:identifier
     entity_category: diagnostic
     update_interval: never
     on_value:
       lambda: |-
-        const auto &y = id(${device_id}_${id}_version).state;
+        const auto &y = id(${id}_${sw_id}_version).state;
         if (x.empty() || y.empty()) return;
-        id(${device_id}_${id}_update_available).publish_state(x != y);
+        id(${id}_${sw_id}_update_available).publish_state(x != y);
 
 binary_sensor:
   - platform: template
-    id: ${device_id}_${id}_update_available
-    device_id: ${device_id}_device
+    id: ${id}_${sw_id}_update_available
+    device_id: ${id}_device
     name: ${name} Update
     device_class: update
     entity_category: diagnostic

@@ -1,7 +1,7 @@
 # MAP6S Device Configuration
 
 modbus_controller:
-  - id: ${device_id}_controller
+  - id: ${id}_controller
     address: ${address}
     setup_priority: -10
     update_interval: ${update_interval}
@@ -10,10 +10,10 @@ packages:
   update: !include
     file: update/${family_id}.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       signature_id: ${signature_id}
 
   device: !include
     file: ${family_id}/device.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}

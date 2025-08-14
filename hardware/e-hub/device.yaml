@@ -13,7 +13,7 @@ packages:
   map6s: !include
     file: wirenboard/device.yaml
     vars:
-      device_id: map6s
+      id: map6s
       family_id: map6s
       signature_id: map6sG16
       address: 68
