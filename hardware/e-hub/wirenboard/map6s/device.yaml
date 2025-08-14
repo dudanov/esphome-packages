@@ -4,7 +4,7 @@ packages:
   channel1: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 1
       current_register: 5146
       power_register: 4870
@@ -17,7 +17,7 @@ packages:
   channel2: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 2
       current_register: 5144
       power_register: 4868
@@ -30,7 +30,7 @@ packages:
   channel3: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 3
       current_register: 5142
       power_register: 4866
@@ -43,7 +43,7 @@ packages:
   channel4: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 4
       current_register: 9242
       power_register: 8966
@@ -56,7 +56,7 @@ packages:
   channel5: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 5
       current_register: 9240
       power_register: 8964
@@ -69,7 +69,7 @@ packages:
   channel6: !include
     file: channel.yaml
     vars:
-      device_id: ${device_id}
+      id: ${id}
       channel: 6
       current_register: 9238
       power_register: 8962
@@ -81,8 +81,9 @@ packages:
 
 sensor:
   - platform: modbus_controller
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_voltage
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: 4313
     name: Voltage
     state_class: measurement
@@ -95,8 +96,9 @@ sensor:
       - multiply: 0.01
 
   - platform: modbus_controller
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_frequency
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: 4344
     name: Frequency
     state_class: measurement
@@ -112,23 +114,25 @@ sensor:
 
   - platform: combination
     type: sum
-    device_id: ${device_id}_device
+    device_id: ${id}_device
+    id: ${id}_total_power
     name: Total Power
     sources:
-      - source: ${device_id}_power1
-      - source: ${device_id}_power2
-      - source: ${device_id}_power3
-      - source: ${device_id}_power4
-      - source: ${device_id}_power5
-      - source: ${device_id}_power6
+      - source: ${id}_power1
+      - source: ${id}_power2
+      - source: ${id}_power3
+      - source: ${id}_power4
+      - source: ${id}_power5
+      - source: ${id}_power6
   - platform: combination
     type: sum
-    device_id: ${device_id}_device
+    device_id: ${id}_device
+    id: ${id}_total_energy
     name: Total Energy
     sources:
-      - source: ${device_id}_energy1
-      - source: ${device_id}_energy2
-      - source: ${device_id}_energy3
-      - source: ${device_id}_energy4
-      - source: ${device_id}_energy5
-      - source: ${device_id}_energy6
+      - source: ${id}_energy1
+      - source: ${id}_energy2
+      - source: ${id}_energy3
+      - source: ${id}_energy4
+      - source: ${id}_energy5
+      - source: ${id}_energy6

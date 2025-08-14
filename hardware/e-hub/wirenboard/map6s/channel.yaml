@@ -2,9 +2,9 @@
 
 sensor:
   - platform: modbus_controller
-    id: ${device_id}_current${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_current${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${current_register}
     name: "CH${channel} Current"
     state_class: measurement
@@ -17,9 +17,9 @@ sensor:
       - multiply: 2.44141e-7
 
   - platform: modbus_controller
-    id: ${device_id}_power${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_power${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${power_register}
     name: "CH${channel} Power"
     state_class: measurement
@@ -32,9 +32,9 @@ sensor:
       - multiply: 2.44141e-4
 
   - platform: modbus_controller
-    id: ${device_id}_factor${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_factor${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${factor_register}
     name: "CH${channel} Factor"
     state_class: measurement
@@ -46,9 +46,9 @@ sensor:
       - multiply: 0.001
 
   - platform: modbus_controller
-    id: ${device_id}_energy${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_energy${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${energy_register}
     name: "CH${channel} Energy"
     state_class: total_increasing
@@ -63,9 +63,9 @@ sensor:
 number:
   # Коэффициент трансформации токового трансформатора
   - platform: modbus_controller
-    id: ${device_id}_turns${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_turns${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${turns_register}
     name: "Turns L${channel}"
     register_type: holding
@@ -78,9 +78,9 @@ number:
 
   # Фазовая задержка токового трансформатора
   - platform: modbus_controller
-    id: ${device_id}_phi${channel}
-    device_id: ${device_id}_device
-    modbus_controller_id: ${device_id}_controller
+    id: ${id}_phi${channel}
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_controller
     address: ${phi_register}
     name: "Phi L${channel}"
     register_type: holding
