@@ -15,12 +15,12 @@ modbus_controller:
 
 packages:
   update: !include
-    file: update/${family_id}.yaml
+    file: "update/${family_id}.yaml"
     vars:
       id: ${id}
       signature_id: ${signature_id}
 
   device: !include
-    file: ${family_id}/device.yaml
+    file: "${family_id}/device.yaml"
     vars:
       id: ${id}
