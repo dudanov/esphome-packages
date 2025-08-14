@@ -14,6 +14,8 @@ packages:
     file: wirenboard/device.yaml
     vars:
       id: map6s
+      name: WirenBoard MAP6S
+      area_id: electrical_panel
       family_id: map6s
       signature_id: map6sG16
       address: 68
@@ -31,9 +33,6 @@ esphome:
     name: "Electrical Panel"
 
   devices:
-    - id: map6s_device
-      name: "WirenBoard MAP6S"
-      area_id: electrical_panel
     - id: ce102m_device
       name: "EnergoMera CE102M"
       area_id: electrical_panel

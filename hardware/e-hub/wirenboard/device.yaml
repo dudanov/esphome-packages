@@ -1,5 +1,12 @@
 # MAP6S Device Configuration
 
+esphome:
+  min_version: 2025.7.0
+  devices:
+    - id: ${id}_device
+      name: ${name}
+      area_id: ${area_id}
+
 modbus_controller:
   - id: ${id}_controller
     address: ${address}
