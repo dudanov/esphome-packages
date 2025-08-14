@@ -9,7 +9,9 @@ script:
           url: https://fw-releases.wirenboard.com/${id}/by-signature/map6sG16/main/latest.txt
           capture_response: true
           on_response:
-            lambda: "id(${id}_version_available).publish_state(body);"
+            lambda: |-
+              body.pop_back();
+              id(${id}_version_available).publish_state(body);
 
 text_sensor:
   - platform: modbus_controller
