@@ -3,7 +3,7 @@ http_request:
   verify_ssl: false
 
 script:
-  - id: ${device_id}_get_${id}_available
+  - id: ${device_id}_fetch_${id}_version
     then:
       - http_request.get:
           url: https://fw-releases.wirenboard.com/${id}/by-signature/${signature}/main/latest.txt
