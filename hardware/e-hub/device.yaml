@@ -40,8 +40,8 @@ esphome:
 wifi:
   on_connect:
     then:
-      - script.execute: get_fw_available
-      - script.execute: get_bootloader_available
+      - script.execute: get_map6s_fw_available
+      - script.execute: get_map6s_bootloader_available
 
 time:
   - platform: homeassistant
@@ -51,8 +51,8 @@ time:
         minutes: 0
         hours: /8
         then:
-          - script.execute: get_fw_available
-          - script.execute: get_bootloader_available
+          - script.execute: get_map6s_fw_available
+          - script.execute: get_map6s_bootloader_available
 
 uart:
   baud_rate: 115200
