@@ -1,0 +1,43 @@
+# MAP6S Device Configuration
+
+modbus_controller:
+  - id: ${device_id}_controller
+    address: ${address}
+    setup_priority: -10
+    update_interval: ${update_interval}
+
+packages:
+  firmware: !include
+    file: update/${family_id}.yaml
+    vars:
+      device_id: ${device_id}
+      signature_id: ${signature_id}
+      id: fw
+      name: Firmware
+      address: 250
+      register_type: read
+      response_size: 32
+
+  bootloader: !include
+    file: update/${family_id}.yaml
+    vars:
+      device_id: ${device_id}
+      signature_id: ${signature_id}
+      id: bootloader
+      name: Bootloader
+      address: 330
+      register_type: holding
+      response_size: 14
+
+  device: !include
+    file: ${family_id}/device.yaml
+    vars:
+      device_id: ${device_id}
+      channel: 1
+      current_register: 5146
+      power_register: 4870
+      factor_register: 4287
+      energy_register: 4620
+      # config numbers
+      turns_register: 5218
+      phi_register: 5221

@@ -11,10 +11,11 @@ packages:
   web: !include ../../common/web.yaml
 
   map6s: !include
-    file: map6s/device.yaml
+    file: wirenboard/device.yaml
     vars:
       device_id: map6s
-      signature: map6sG16
+      family_id: map6s
+      signature_id: map6sG16
       address: 68
       update_interval: 2s
 

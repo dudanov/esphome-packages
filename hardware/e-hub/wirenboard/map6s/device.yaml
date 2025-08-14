@@ -1,36 +1,8 @@
 # MAP6S Device Configuration
 
-modbus_controller:
-  - id: ${device_id}_controller
-    address: ${address}
-    setup_priority: -10
-    update_interval: ${update_interval}
-
 packages:
-  firmware: !include
-    file: update_template.yaml
-    vars:
-      device_id: ${device_id}
-      signature: ${signature}
-      id: fw
-      name: Firmware
-      address: 250
-      register_type: read
-      response_size: 32
-
-  bootloader: !include
-    file: update_template.yaml
-    vars:
-      device_id: ${device_id}
-      signature: ${signature}
-      id: bootloader
-      name: Bootloader
-      address: 330
-      register_type: holding
-      response_size: 14
-
   channel1: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 1
@@ -43,7 +15,7 @@ packages:
       phi_register: 5221
 
   channel2: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 2
@@ -56,7 +28,7 @@ packages:
       phi_register: 5220
 
   channel3: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 3
@@ -69,7 +41,7 @@ packages:
       phi_register: 5219
 
   channel4: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 4
@@ -82,7 +54,7 @@ packages:
       phi_register: 9317
 
   channel5: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 5
@@ -95,7 +67,7 @@ packages:
       phi_register: 9316
 
   channel6: !include
-    file: channel_template.yaml
+    file: channel.yaml
     vars:
       device_id: ${device_id}
       channel: 6

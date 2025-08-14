@@ -6,7 +6,7 @@ script:
   - id: ${device_id}_fetch_${id}_version
     then:
       - http_request.get:
-          url: https://fw-releases.wirenboard.com/${id}/by-signature/${signature}/main/latest.txt
+          url: https://fw-releases.wirenboard.com/${id}/by-signature/${signature_id}/main/latest.txt
           capture_response: true
           on_response:
             lambda: |-

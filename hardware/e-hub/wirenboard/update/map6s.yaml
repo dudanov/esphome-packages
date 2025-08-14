@@ -1,0 +1,22 @@
+packages:
+  firmware: !include
+    file: template.yaml
+    vars:
+      device_id: ${device_id}
+      signature_id: ${signature_id}
+      id: fw
+      name: Firmware
+      address: 250
+      register_type: read
+      response_size: 32
+
+  bootloader: !include
+    file: template.yaml
+    vars:
+      device_id: ${device_id}
+      signature_id: ${signature_id}
+      id: bootloader
+      name: Bootloader
+      address: 330
+      register_type: holding
+      response_size: 14
