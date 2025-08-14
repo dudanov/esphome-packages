@@ -17,11 +17,3 @@ packages:
     file: ${family_id}/device.yaml
     vars:
       device_id: ${device_id}
-      channel: 1
-      current_register: 5146
-      power_register: 4870
-      factor_register: 4287
-      energy_register: 4620
-      # config numbers
-      turns_register: 5218
-      phi_register: 5221
