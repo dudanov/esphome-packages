@@ -43,16 +43,12 @@ wifi:
       - script.execute: map6s_fetch_fw_version
       - script.execute: map6s_fetch_bootloader_version
 
-time:
-  - platform: homeassistant
-    on_time:
-      # Every 8 hours
-      - seconds: 0
-        minutes: 0
-        hours: /8
-        then:
-          - script.execute: map6s_fetch_fw_version
-          - script.execute: map6s_fetch_bootloader_version
+interval:
+  - interval: 8h
+    startup_delay: 8h
+    then:
+      - script.execute: map6s_fetch_fw_version
+      - script.execute: map6s_fetch_bootloader_version
 
 uart:
   baud_rate: 115200
