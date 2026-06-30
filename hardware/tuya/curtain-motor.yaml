@@ -1,6 +1,9 @@
 # Works with my LoonaS Curtain Motors
 # Needs replace Tuya WBR-3 with ESP-12F
 
+substitutions:
+  invert_position: false
+
 esphome:
   project:
     name: "tuya.curtain-motor"
@@ -19,3 +22,4 @@ cover:
     position_datapoint: 2
     position_report_datapoint: 3
     direction_datapoint: 5
+    invert_position: ${invert_position}
