@@ -117,6 +117,7 @@ sensor:
     device_id: ${id}_device
     id: ${id}_total_power
     name: Total Power
+    state_class: measurement
     sources:
       - source: ${id}_power1
       - source: ${id}_power2
