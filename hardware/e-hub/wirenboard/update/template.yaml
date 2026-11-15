@@ -6,7 +6,8 @@ script:
   - id: ${id}_fetch_${sw_id}_version
     then:
       - http_request.get:
-          url: https://fw-releases.wirenboard.com/${sw_id}/by-signature/${signature_id}/main/latest.txt
+          url: !lambda |-
+            return str_sprintf("https://fw-releases.wirenboard.com/${sw_id}/by-signature/%s/main/latest.txt", id(${id}_code).state.c_str());
           capture_response: true
           on_response:
             lambda: |-

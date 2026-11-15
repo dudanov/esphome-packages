@@ -37,19 +37,6 @@ esphome:
       name: "EnergoMera CE102M"
       area_id: electrical_panel
 
-wifi:
-  on_connect:
-    then:
-      - script.execute: map6s_fetch_fw_version
-      - script.execute: map6s_fetch_bootloader_version
-
-interval:
-  - interval: 8h
-    startup_delay: 8h
-    then:
-      - script.execute: map6s_fetch_fw_version
-      - script.execute: map6s_fetch_bootloader_version
-
 uart:
   baud_rate: 115200
   tx_pin: 18

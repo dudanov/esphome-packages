@@ -20,3 +20,20 @@ packages:
       address: 330
       register_type: holding
       response_size: 14
+
+text_sensor:
+  - platform: modbus_controller
+    id: ${id}_code
+    device_id: ${id}_device
+    modbus_controller_id: ${id}_settings_controller
+    address: 290
+    register_type: holding
+    response_size: 24
+    raw_encode: ANSI
+    name: Signature
+    icon: mdi:identifier
+    entity_category: diagnostic
+    on_value:
+      then:
+        - script.execute: ${id}_fetch_fw_version
+        - script.execute: ${id}_fetch_bootloader_version
