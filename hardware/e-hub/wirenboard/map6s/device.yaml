@@ -130,6 +130,7 @@ sensor:
     device_id: ${id}_device
     id: ${id}_total_energy
     name: Total Energy
+    state_class: total_increasing
     sources:
       - source: ${id}_energy1
       - source: ${id}_energy2
