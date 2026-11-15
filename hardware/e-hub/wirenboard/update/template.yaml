@@ -17,12 +17,11 @@ text_sensor:
   - platform: modbus_controller
     id: ${id}_${sw_id}_version
     device_id: ${id}_device
-    modbus_controller_id: ${id}_controller
+    modbus_controller_id: ${id}_settings_controller
     address: ${address}
     register_type: ${register_type}
     response_size: ${response_size}
     raw_encode: ANSI
-    skip_updates: 99
     name: ${name} Version
     icon: mdi:identifier
     entity_category: diagnostic
