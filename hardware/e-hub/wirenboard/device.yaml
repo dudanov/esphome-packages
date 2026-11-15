@@ -16,7 +16,7 @@ modbus_controller:
   - id: ${id}_settings_controller
     address: ${address}
     setup_priority: -10
-    update_interval: 1h
+    update_interval: never
 
 packages:
   update: !include
