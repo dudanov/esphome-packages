@@ -29,3 +29,18 @@ packages:
     file: "${family_id}/device.yaml"
     vars:
       id: ${id}
+
+wifi:
+  on_connect:
+    - script.execute: polling_loop
+
+script:
+  - id: polling_loop
+    mode: restart
+    then:
+      - while:
+          condition:
+            wifi.connected:
+          then:
+            - delay: 1h
+            - component.update: ${id}_settings_controller
