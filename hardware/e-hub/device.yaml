@@ -19,7 +19,7 @@ packages:
       family_id: map6s
       signature_id: map6sG16
       address: 68
-      update_interval: 2s
+      update_interval: 5s
 
 esphome:
   min_version: 2025.7.0

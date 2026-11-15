@@ -11,11 +11,12 @@ modbus_controller:
   - id: ${id}_controller
     address: ${address}
     setup_priority: -10
+    continuous: true
     update_interval: ${update_interval}
   - id: ${id}_settings_controller
     address: ${address}
     setup_priority: -10
-    update_interval: never
+    update_interval: 1h
 
 packages:
   update: !include
