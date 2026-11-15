@@ -42,5 +42,5 @@ script:
           condition:
             wifi.connected:
           then:
-            - delay: 1h
             - component.update: ${id}_settings_controller
+            - delay: 1h
